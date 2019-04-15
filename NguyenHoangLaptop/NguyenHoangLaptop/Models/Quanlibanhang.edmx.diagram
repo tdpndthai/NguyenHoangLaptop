@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9ae6395256f43658e0f3dbdfc9fb6e9" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.BinhLuan" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.ChiTietDonDatHang" Width="1.5" PointX="11.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.ChiTietPhieuNhap" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.DonDatHang" Width="1.5" PointX="9" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.KhachHang" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.LoaiSanPham" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.LoaiThanhVien" Width="1.5" PointX="3.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.NhaSanXuat" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.PhieuNhap" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.SanPham" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.ThanhVien" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_BinhLuan_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_BinhLuan_ThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_ChiTietDonDatHang_ChiTietDonDatHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_ChiTietDonDatHang_ChiTietDonDatHang1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_ChiTietPhieuNhap_ChiTietPhieuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_DonDatHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_KhachHang_ThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_SanPham2" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_ThanhVien_LoaiThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_PhieuNhap_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_SanPham1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_SanPham" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

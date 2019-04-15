@@ -1,0 +1,22 @@
+﻿@using NguyenHoangLaptop.Models;
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Layout/_HomeLayout.cshtml";
+}
+
+@{IEnumerable<SanPham> lstLaptopDell = (IEnumerable<SanPham>)ViewBag.ListDell; }
+@{IEnumerable<SanPham> lstLaptopHP = (IEnumerable<SanPham>)ViewBag.ListHP; }
+<div class="content">
+    <div class="container">
+        <h1>Laptop Dell</h1>
+        @Html.Partial("SanPhamPartial", lstLaptopDell)
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <h1>Laptop HP</h1>
+        @Html.Partial("SanPhamPartial", lstLaptopHP)
+    </div>
+</div>
