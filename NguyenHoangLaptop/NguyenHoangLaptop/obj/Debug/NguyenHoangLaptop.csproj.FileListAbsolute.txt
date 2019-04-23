@@ -1,3 +1,5 @@
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll.config
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.pdb
@@ -48,7 +50,6 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\vbc.r
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\VBCSCompiler.exe
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Antlr3.Runtime.dll
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.SqlServer.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.Web.Infrastructure.dll
@@ -61,7 +62,6 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.W
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.WebPages.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.WebPages.Razor.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\WebGrease.dll
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.SqlServer.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Helpers.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Mvc.xml
