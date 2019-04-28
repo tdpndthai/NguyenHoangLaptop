@@ -80,9 +80,9 @@ a.item_add {
 .header {
   border-bottom: 1px solid #000;
 }
-.header-top{
-	background: #000;
-	  padding: 15px 0;
+.header-top {
+    background: #0b5fa5;
+    padding: 15px 0;
 }
 .search{
 	position:relative;
@@ -431,14 +431,14 @@ height: 35px;
 .b-animate-go:hover .b-animate{
 	visibility:visible;
 }
-.b-from-left{
-	position: relative;
-	left: -100%;
-	background: rgba(239, 95, 33, 0.64);
-  background-size: 100% 100%;
-  top: 0px;
-  margin: 0;
-  min-height: 356px;
+.b-from-left {
+    position: relative;
+    left: -100%;
+    background: #7777775e;
+    background-size: 100% 100%;
+    top: 0px;
+    margin: 0;
+    min-height: 356px;
 }
 .grid-top:hover .b-from-left{
 	left:0;
@@ -508,8 +508,8 @@ height: 35px;
 	
 /*--//content--*/
 /*--footer--*/
-.footer{
-	background:#141414;
+.footer {
+    background: #281e6c;
 }
 .amet-sed h4{
 	font-size: 1.5em;
@@ -554,9 +554,9 @@ ul.nav-bottom li  a:hover{
 	color:#fff;
 }
 .footer-class {
-  padding: 1.5em 0;
-  text-align:center;
-  background:#000;
+    padding: 1.5em 0;
+    text-align: center;
+    background: #281e6c;
 }
 .amet-sed form{
 padding:1em 0 0;
@@ -1314,13 +1314,14 @@ a.add-re:hover{
 	padding: 4em 0 ;
 }
 /*--register--*/
-.register h1{
-	font-size: 3em;
-  font-family: 'Lato', sans-serif;
-  color: #000;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 1em;
+.register h1 {
+    font-size: 3em;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1em;
+    margin-top: -85px;
 }
 .register-top-grid h3, .register-bottom-grid h3 {
 	font-size: 1.5em;

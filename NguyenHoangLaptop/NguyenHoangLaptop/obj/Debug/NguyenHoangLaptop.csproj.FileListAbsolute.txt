@@ -1,5 +1,3 @@
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.dll
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll.config
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.pdb
@@ -50,6 +48,7 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\vbc.r
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\VBCSCompiler.exe
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Antlr3.Runtime.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.SqlServer.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.Web.Infrastructure.dll
@@ -62,6 +61,7 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.W
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.WebPages.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.WebPages.Razor.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\WebGrease.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.SqlServer.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Helpers.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Mvc.xml
@@ -73,8 +73,11 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.W
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Newtonsoft.Json.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Antlr3.Runtime.pdb
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csprojAssemblyReference.cache
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CoreCompileInputs.cache
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CopyComplete
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.pdb
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csprojAssemblyReference.cache
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\CaptchaMvc.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\CaptchaMvc.pdb
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\CaptchaMvc.xml

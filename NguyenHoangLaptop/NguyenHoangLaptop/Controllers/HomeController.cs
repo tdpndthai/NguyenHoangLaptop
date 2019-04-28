@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CaptchaMvc.HtmlHelpers;
+using CaptchaMvc;
 using NguyenHoangLaptop.Models;
 
 namespace NguyenHoangLaptop.Controllers
@@ -23,6 +25,40 @@ namespace NguyenHoangLaptop.Controllers
         {
             var lstSP = db.SanPham;
             return PartialView(lstSP);
+        }
+        [HttpGet]
+        public ActionResult DangKy()
+        {
+            ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangKy(ThanhVien tv,FormCollection f)
+        {
+            ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            //kiểm tra captcha hợp lệ
+            if (this.IsCaptchaValid("Captcha is not valid"))
+            {
+                ViewBag.ThongBao = "Thêm thành công";
+                //thêm khách hàng vào csdl
+                db.ThanhVien.Add(tv);
+                db.SaveChanges(); //lấy từ dataset rồi chuyển vào csdl
+                return View();
+            }
+            ViewBag.ThongBao = "Sai mã captcha";
+            return View();
+        }
+        //load câu hỏi bí mật
+        public List<string> LoadCauHoi()
+        {
+            List<string> lstCauHoi = new List<string>
+            {
+                "your name",
+                "your name",
+                "your name",
+                "your name"
+            };
+            return lstCauHoi;
         }
     }
 }
