@@ -60,5 +60,27 @@ namespace NguyenHoangLaptop.Controllers
             };
             return lstCauHoi;
         }
+        //action đăng nhập
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection f)
+        {
+            //kiểm tra tên đăng nhập và mật khẩu
+            string TaiKhoan = f["txtTenDangNhap"].ToString();
+            string MatKhau = f["txtMatKhau"].ToString();
+            ThanhVien tv = db.ThanhVien.SingleOrDefault(n => n.TaiKhoan == TaiKhoan && n.MatKhau == MatKhau);
+            if (tv != null)
+            {
+                Session["TaiKhoan"] = tv;
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+        //action đăng xuất
+        public ActionResult DangXuat()
+        {
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -198,7 +198,9 @@
     <Content Include="Content\trangweb\css\flexslider.css" />
     <Content Include="Content\trangweb\css\memenu.css" />
     <Content Include="Content\trangweb\css\style.css" />
+    <Content Include="Content\trangweb\css\style_form_dangnhap.css" />
     <Content Include="Content\trangweb\images\7537.jpg" />
+    <Content Include="Content\trangweb\images\anhnen.jpg" />
     <Content Include="Content\trangweb\images\cart.png" />
     <Content Include="Content\trangweb\images\dell-icon.png" />
     <Content Include="Content\trangweb\images\dell-latitude-E5440.jpg" />
@@ -222,6 +224,9 @@
     <Content Include="Content\trangweb\images\N3420.jpg" />
     <Content Include="Content\trangweb\images\n4050.jpg" />
     <Content Include="Content\trangweb\images\1.jpg" />
+    <Content Include="Content\trangweb\images\slide1.jpg" />
+    <Content Include="Content\trangweb\images\slide2.jpg" />
+    <Content Include="Content\trangweb\images\slide3.jpg" />
     <Content Include="Content\trangweb\js\jquery.flexslider.js" />
     <Content Include="Content\trangweb\js\jquery.min.js" />
     <Content Include="Content\trangweb\js\main.js" />
@@ -278,6 +283,7 @@
     <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Layout\_HeaderTopPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

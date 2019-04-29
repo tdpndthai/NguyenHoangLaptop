@@ -1269,6 +1269,7 @@ h6 .small,
 }
 h1,
 .h1 {
+  margin:15px;
   font-size: 36px;
 }
 h2,
