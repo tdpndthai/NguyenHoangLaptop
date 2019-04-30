@@ -39,10 +39,17 @@ namespace NguyenHoangLaptop.Controllers
             //kiểm tra captcha hợp lệ
             if (this.IsCaptchaValid("Captcha is not valid"))
             {
-                ViewBag.ThongBao = "Thêm thành công";
-                //thêm khách hàng vào csdl
-                db.ThanhVien.Add(tv);
-                db.SaveChanges(); //lấy từ dataset rồi chuyển vào csdl
+                if (ModelState.IsValid)
+                {
+                    ViewBag.ThongBao = "Thêm thành công";
+                    //thêm khách hàng vào csdl
+                    db.ThanhVien.Add(tv);
+                    db.SaveChanges(); //lấy từ dataset rồi chuyển vào csdl
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Thêm thất bại";
+                }
                 return View();
             }
             ViewBag.ThongBao = "Sai mã captcha";
@@ -71,15 +78,15 @@ namespace NguyenHoangLaptop.Controllers
             if (tv != null)
             {
                 Session["TaiKhoan"] = tv;
-                return RedirectToAction("Index");
+                return Content("<script>window.location.reload();</script>");
             }
-            return RedirectToAction("Index");
+            return Content("Tên đăng nhập hoặc mật khẩu không đúng");
         }
         //action đăng xuất
         public ActionResult DangXuat()
         {
             Session["TaiKhoan"] = null;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
     }

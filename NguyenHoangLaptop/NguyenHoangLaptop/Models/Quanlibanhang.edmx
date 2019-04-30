@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanlibanhanglaptopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanlibanhanglaptopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BinhLuan">
           <Key>
             <PropertyRef Name="MaBL" />
@@ -46,6 +46,7 @@
           <Property Name="DaThanhToan" Type="bit" />
           <Property Name="UuDai" Type="int" />
           <Property Name="MaKH" Type="int" />
+          <Property Name="DaHuy" Type="bit" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -130,8 +131,9 @@
           <Key>
             <PropertyRef Name="MaThanhVien" />
           </Key>
-          <Property Name="MaThanhVien" Type="int" Nullable="false" />
+          <Property Name="MaThanhVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TaiKhoan" Type="nvarchar" MaxLength="150" />
+          <Property Name="NhapLaiMatKhau" Type="nvarchar" MaxLength="50" />
           <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="150" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
@@ -371,8 +373,7 @@
             <End Role="ThanhVien" EntitySet="ThanhVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanlibanhanglaptopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -424,6 +425,7 @@
           <Property Name="MaKH" Type="Int32" />
           <NavigationProperty Name="ChiTietDonDatHang" Relationship="Self.FK_ChiTietDonDatHang_ChiTietDonDatHang" FromRole="DonDatHang" ToRole="ChiTietDonDatHang" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_DonDatHang_KhachHang" FromRole="DonDatHang" ToRole="KhachHang" />
+          <Property Name="DaHuy" Type="Boolean" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -535,6 +537,7 @@
           <NavigationProperty Name="BinhLuan" Relationship="Self.FK_BinhLuan_ThanhVien" FromRole="ThanhVien" ToRole="BinhLuan" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_KhachHang_ThanhVien" FromRole="ThanhVien" ToRole="KhachHang" />
           <NavigationProperty Name="LoaiThanhVien" Relationship="Self.FK_ThanhVien_LoaiThanhVien" FromRole="ThanhVien" ToRole="LoaiThanhVien" />
+          <Property Name="NhapLaiMatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_BinhLuan_SanPham">
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1">
@@ -808,6 +811,7 @@
           <EntitySetMapping Name="DonDatHang">
             <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.DonDatHang">
               <MappingFragment StoreEntitySet="DonDatHang">
+                <ScalarProperty Name="DaHuy" ColumnName="DaHuy" />
                 <ScalarProperty Name="MaDDH" ColumnName="MaDDH" />
                 <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
                 <ScalarProperty Name="TinhTrangGiaoHang" ColumnName="TinhTrangGiaoHang" />
@@ -907,6 +911,7 @@
           <EntitySetMapping Name="ThanhVien">
             <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.ThanhVien">
               <MappingFragment StoreEntitySet="ThanhVien">
+                <ScalarProperty Name="NhapLaiMatKhau" ColumnName="NhapLaiMatKhau" />
                 <ScalarProperty Name="MaThanhVien" ColumnName="MaThanhVien" />
                 <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />

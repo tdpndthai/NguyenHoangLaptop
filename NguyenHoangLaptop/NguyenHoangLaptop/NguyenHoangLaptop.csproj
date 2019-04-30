@@ -157,6 +157,7 @@
     <Compile Include="Models\LoaiThanhVien.cs">
       <DependentUpon>Quanlibanhang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata\ThanhVien.metadata.cs" />
     <Compile Include="Models\NhaCungCap.cs">
       <DependentUpon>Quanlibanhang.tt</DependentUpon>
     </Compile>

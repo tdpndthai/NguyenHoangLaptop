@@ -51,14 +51,15 @@
         </div>
         <h2>Đăng nhập</h2>
         <div class="form-info">
-            @using (Html.BeginForm("DangNhap","Home"))
+            @using (Ajax.BeginForm("DangNhap","Home",new AjaxOptions {InsertionMode=InsertionMode.Replace,UpdateTargetId="ThongBao" }))
             {
                 <input class="email TaiKhoan" name="txtTenDangNhap" placeholder="Tên đăng nhập" required="" type="text">
                 <input class="password MatKhau" name="txtMatKhau" placeholder="Mật khẩu" required="" type="password">
                 <p><a href="#">Quên mật khẩu?</a></p>
+                <h3 style="color:red;" id="ThongBao"></h3>
                 <ul class="login-buttons">
                     <li><input value="Đăng nhập" type="submit" id="btnDangNhap1"></li>
-                    <li><a href="#" class="hvr-sweep-to-left">Đăng ký</a></li>
+                    <li><a href="@Url.Action("DangKy","Home")" class="hvr-sweep-to-left">Đăng ký</a></li>
                 </ul>
             }
         </div>
