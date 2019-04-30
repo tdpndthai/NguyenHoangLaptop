@@ -11,7 +11,8 @@ namespace NguyenHoangLaptop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -33,7 +34,7 @@ namespace NguyenHoangLaptop.Models
         public string HinhAnh2 { get; set; }
         public string HinhAnh3 { get; set; }
         public string HinhAnh4 { get; set; }
-        public string SoLuongTon { get; set; }
+        public int? SoLuongTon { get; set; }
         public Nullable<int> Moi { get; set; }
         public Nullable<bool> DaXoa { get; set; }
         public Nullable<int> MaNSX { get; set; }

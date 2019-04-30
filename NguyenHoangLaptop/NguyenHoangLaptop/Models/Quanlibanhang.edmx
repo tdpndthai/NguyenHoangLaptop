@@ -120,7 +120,7 @@
           <Property Name="HinhAnh2" Type="nchar" MaxLength="100" />
           <Property Name="HinhAnh3" Type="nchar" MaxLength="100" />
           <Property Name="HinhAnh4" Type="nchar" MaxLength="100" />
-          <Property Name="SoLuongTon" Type="nchar" MaxLength="10" />
+          <Property Name="SoLuongTon" Type="int" Nullable="false" />
           <Property Name="Moi" Type="int" />
           <Property Name="DaXoa" Type="bit" />
           <Property Name="MaNSX" Type="int" />
@@ -507,7 +507,7 @@
           <Property Name="HinhAnh2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="HinhAnh3" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="HinhAnh4" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="SoLuongTon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SoLuongTon" Type="Int32" Nullable="false" />
           <Property Name="Moi" Type="Int32" />
           <Property Name="DaXoa" Type="Boolean" />
           <Property Name="MaNSX" Type="Int32" />
@@ -888,6 +888,7 @@
           <EntitySetMapping Name="SanPham">
             <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.SanPham">
               <MappingFragment StoreEntitySet="SanPham">
+                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
@@ -899,7 +900,6 @@
                 <ScalarProperty Name="HinhAnh2" ColumnName="HinhAnh2" />
                 <ScalarProperty Name="HinhAnh3" ColumnName="HinhAnh3" />
                 <ScalarProperty Name="HinhAnh4" ColumnName="HinhAnh4" />
-                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
                 <ScalarProperty Name="Moi" ColumnName="Moi" />
                 <ScalarProperty Name="DaXoa" ColumnName="DaXoa" />
                 <ScalarProperty Name="MaNSX" ColumnName="MaNSX" />
@@ -939,7 +939,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -131,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,6 +149,7 @@
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>Quanlibanhang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\itemGioHang.cs" />
     <Compile Include="Models\KhachHang.cs">
       <DependentUpon>Quanlibanhang.tt</DependentUpon>
     </Compile>
@@ -257,6 +259,7 @@
     <Content Include="Models\Quanlibanhang.edmx.diagram">
       <DependentUpon>Quanlibanhang.edmx</DependentUpon>
     </Content>
+    <Compile Include="Models\Metadata\SanPham.metadata.cs" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -285,6 +288,10 @@
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\_HeaderTopPartial.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\ThongBao.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

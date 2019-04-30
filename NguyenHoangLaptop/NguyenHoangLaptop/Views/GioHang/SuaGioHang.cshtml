@@ -1,0 +1,53 @@
+﻿@using NguyenHoangLaptop.Models;
+
+@model itemGioHang
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+}
+
+@{
+    List<itemGioHang> lstGioHang = ViewBag.GioHang as List<itemGioHang>;
+}
+
+<table>
+    <tr>
+        <td>Mã Sản Phẩm</td>
+        <td>Tên Sản Phẩm</td>
+        <td>Hình Ảnh</td>
+        <td>Số Lượng</td>
+        <td>Đơn Giá</td>
+        <td>Thành Tiền</td>
+    </tr>
+    @foreach (var item in lstGioHang)
+    {
+        //sản phẩm có ma sp được chỉnh sửa từ tham số bên trang xem giỏ hàng
+        if (Model.MaSP == item.MaSP)
+        {
+            using (Html.BeginForm("CapNhatGioHang","GioHang"))
+            {
+                <tr>
+                    <td>@item.MaSP @Html.Hidden("MaSP",item.MaSP)</td>
+                    <td>@item.TenSP</td>
+                    <td><img src="@Url.Content("~/Content/trangweb/images/"+item.HinhAnh)" width="50" height="50" /></td>
+                    <td>@Html.TextBox("SoLuong", item.SoLuong)</td>
+                    <td>@item.DonGia.ToString("#,##") VNĐ</td>
+                    <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
+                    <td><input type="submit" value="Cập Nhật" /></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td><img src="@Url.Content("~/Content/trangweb/images/"+item.HinhAnh)" width="50" height="50" /></td>
+                <td>@item.SoLuong</td>
+                <td>@item.DonGia.ToString("#,##") VNĐ</td>
+                <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>
+            </tr>
+        }
+    }
+</table>

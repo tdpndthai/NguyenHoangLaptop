@@ -4,8 +4,8 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-md-4 grid-top">
-        <a href="@Url.Action("ChiTietSanPham","SanPham",new {@id=item.MaSP})" class="b-link-stripe b-animate-go  thickbox">
+    <div class="col-md-4 grid-top" style="border:3px solid #0bd7c8;padding:15px;border-radius:6px;">
+        <a href="@Url.Action("ChiTietSanPham","SanPham",new {@id=item.MaSP})" class="b-link-stripe b-animate-go  thickbox" style="border-radius:15px;">
             <img class="img-responsive" src="@Url.Content("~/Content/trangweb/images/"+item.HinhAnh)" alt="">
             <div class="b-wrapper">
                 <h3 class="b-animate b-from-left    b-delay03 ">

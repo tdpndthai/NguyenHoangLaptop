@@ -21,7 +21,7 @@
                     </a>
                 </div>
                 <p class="tun">@item.TenSP</p>
-                <a href="#" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
+                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSP=item.MaSP,@strUrl=Request.Url.ToString()})" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
             </div>
         }
     </div>
