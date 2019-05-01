@@ -1,3 +1,4 @@
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll.config
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\NguyenHoangLaptop.pdb
@@ -64,7 +65,6 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.W
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\WebGrease.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\CaptchaMvc.pdb
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\CaptchaMvc.xml
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\EntityFramework.SqlServer.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Helpers.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Mvc.xml

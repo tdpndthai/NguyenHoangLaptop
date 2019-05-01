@@ -10,6 +10,53 @@
     IEnumerable<SanPham> lstLaptopHP = ViewBag.ListHP as IEnumerable<SanPham>;
 }
 
+<div class="banner">
+    <div class="container">
+        <script src="~/Content/trangweb/js/responsiveslides.min.js"></script>
+        <script>
+                $(function () {
+                    $("#slider").responsiveSlides({
+                        auto: true,
+                        nav: true,
+                        speed: 500,
+                        namespace: "callbacks",
+                        pager: true,
+                    });
+                });
+        </script>
+        <div id="top" class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+
+                    <div class="banner-text">
+                        <img src="~/Content/trangweb/images/slide1.jpg" alt="">
+                        <h2>Sản phẩm chất lượng</h2>
+                    </div>
+
+                </li>
+                <li>
+
+                    <div class="banner-text">
+                        <img src="~/Content/trangweb/images/1.jpg" alt="">
+                        <h2>Chúng tôi luôn có những dịch vụ tốt nhất</h2>
+
+                    </div>
+
+                </li>
+                <li>
+                    <div class="banner-text">
+                        <img src="~/Content/trangweb/images/slide3.jpg" alt="">
+                        <h2>Hãy đến với chúng tôi NguyenHoang Laptop</h2>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
 <div class="content">
     <div class="container" style="margin-top:15px;">
         <h1>Laptop Dell</h1>

@@ -138,57 +138,57 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BinhLuan.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDonDatHang.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietPhieuNhap.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonDatHang.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\itemGioHang.cs" />
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSanPham.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiThanhVien.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Metadata\ThanhVien.metadata.cs" />
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaSanXuat.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhieuNhap.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Quanlibanhang.Context.cs">
+    <Compile Include="Models\QuanLiBanHangLapTop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Quanlibanhang.Context.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Quanlibanhang.cs">
+    <Compile Include="Models\QuanLiBanHangLapTop.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Quanlibanhang.Designer.cs">
+    <Compile Include="Models\QuanLiBanHangLapTop.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Quanlibanhang.edmx</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhVien.cs">
-      <DependentUpon>Quanlibanhang.tt</DependentUpon>
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -240,26 +240,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Quanlibanhang.Context.tt">
+    <Content Include="Models\QuanLiBanHangLapTop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Quanlibanhang.edmx</DependentUpon>
-      <LastGenOutput>Quanlibanhang.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLiBanHangLapTop.edmx</DependentUpon>
+      <LastGenOutput>QuanLiBanHangLapTop.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Quanlibanhang.tt">
+    <Content Include="Models\QuanLiBanHangLapTop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Quanlibanhang.edmx</DependentUpon>
-      <LastGenOutput>Quanlibanhang.cs</LastGenOutput>
+      <DependentUpon>QuanLiBanHangLapTop.edmx</DependentUpon>
+      <LastGenOutput>QuanLiBanHangLapTop.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Quanlibanhang.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Quanlibanhang.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Quanlibanhang.edmx.diagram">
-      <DependentUpon>Quanlibanhang.edmx</DependentUpon>
-    </Content>
     <Compile Include="Models\Metadata\SanPham.metadata.cs" />
+    <EntityDeploy Include="Models\QuanLiBanHangLapTop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLiBanHangLapTop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLiBanHangLapTop.edmx.diagram">
+      <DependentUpon>QuanLiBanHangLapTop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -288,10 +288,10 @@
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\_HeaderTopPartial.cshtml" />
-    <Content Include="Views\GioHang\XemGioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\ThongBao.cshtml" />
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

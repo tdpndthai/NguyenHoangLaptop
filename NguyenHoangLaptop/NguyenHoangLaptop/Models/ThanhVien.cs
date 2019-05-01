@@ -17,12 +17,13 @@ namespace NguyenHoangLaptop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ThanhVien()
         {
-            this.BinhLuan = new HashSet<BinhLuan>();
-            this.KhachHang = new HashSet<KhachHang>();
+            this.BinhLuans = new HashSet<BinhLuan>();
+            this.KhachHangs = new HashSet<KhachHang>();
         }
     
         public int MaThanhVien { get; set; }
         public string TaiKhoan { get; set; }
+        public string NhapLaiMatKhau { get; set; }
         public string MatKhau { get; set; }
         public string HoTen { get; set; }
         public string DiaChi { get; set; }
@@ -31,12 +32,11 @@ namespace NguyenHoangLaptop.Models
         public string CauHoi { get; set; }
         public string CauTraLoi { get; set; }
         public Nullable<int> MaLoaiTV { get; set; }
-        public string NhapLaiMatKhau { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BinhLuan> BinhLuan { get; set; }
+        public virtual ICollection<BinhLuan> BinhLuans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHang { get; set; }
+        public virtual ICollection<KhachHang> KhachHangs { get; set; }
         public virtual LoaiThanhVien LoaiThanhVien { get; set; }
     }
 }

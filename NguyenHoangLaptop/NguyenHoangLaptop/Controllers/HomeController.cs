@@ -11,19 +11,19 @@ namespace NguyenHoangLaptop.Controllers
 {
     public class HomeController : Controller
     {
-        QuanlibanhanglaptopEntities1 db = new QuanlibanhanglaptopEntities1();
+        QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
         // GET: Home
         public ActionResult Index()
         {
-            var lstLaptopDell = db.SanPham.Where(n => n.MaLoaiSP == 1 && n.Moi == 1);
+            var lstLaptopDell = db.SanPhams.Where(n => n.MaLoaiSP == 1 && n.Moi == 1);
             ViewBag.ListDell = lstLaptopDell;
-            var lstLaptopHP = db.SanPham.Where(n => n.MaLoaiSP == 2 && n.Moi == 1);
+            var lstLaptopHP = db.SanPhams.Where(n => n.MaLoaiSP == 2 && n.Moi == 1);
             ViewBag.ListHP = lstLaptopHP;
             return View();
         }
         public ActionResult MenuPartial()
         {
-            var lstSP = db.SanPham;
+            var lstSP = db.SanPhams;
             return PartialView(lstSP);
         }
         [HttpGet]
@@ -43,7 +43,7 @@ namespace NguyenHoangLaptop.Controllers
                 {
                     ViewBag.ThongBao = "Thêm thành công";
                     //thêm khách hàng vào csdl
-                    db.ThanhVien.Add(tv);
+                    db.ThanhViens.Add(tv);
                     db.SaveChanges(); //lấy từ dataset rồi chuyển vào csdl
                 }
                 else
@@ -72,13 +72,13 @@ namespace NguyenHoangLaptop.Controllers
         public ActionResult DangNhap(FormCollection f)
         {
             //kiểm tra tên đăng nhập và mật khẩu
-            string TaiKhoan = f["txtTenDangNhap"].ToString();
-            string MatKhau = f["txtMatKhau"].ToString();
-            ThanhVien tv = db.ThanhVien.SingleOrDefault(n => n.TaiKhoan == TaiKhoan && n.MatKhau == MatKhau);
+            string sTaiKhoan = f["txtTenDangNhap"].ToString();
+            string sMatKhau = f["txtMatKhau"].ToString();
+            ThanhVien tv = db.ThanhViens.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
             if (tv != null)
             {
                 Session["TaiKhoan"] = tv;
-                return Content("<script>window.location.reload();</script>");
+                return RedirectToAction("Index");
             }
             return Content("Tên đăng nhập hoặc mật khẩu không đúng");
         }
@@ -86,7 +86,7 @@ namespace NguyenHoangLaptop.Controllers
         public ActionResult DangXuat()
         {
             Session["TaiKhoan"] = null;
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index");
         }
 
     }

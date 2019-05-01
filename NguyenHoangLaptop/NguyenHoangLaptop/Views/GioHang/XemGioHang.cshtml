@@ -1,11 +1,12 @@
 ﻿@using NguyenHoangLaptop.Models;
-@model List<itemGioHang>
 
+@model List<itemGioHang>
 @{
     ViewBag.Title = "XemGioHang";
-    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+    Layout = "~/Views/Layout/_HomeLayout.cshtml";
 }
-@if (Model == null)
+
+@if (Model == null || Model.Count == 0)
 {
     <h1>Giỏ hàng rỗng</h1>
 }
@@ -29,9 +30,107 @@ else
                 <td>@item.SoLuong</td>
                 <td>@item.DonGia.ToString("#,##") VNĐ</td>
                 <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
-                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Xóa", "XoaGioHang", new { @MaSP = item.MaSP }, new { @class = "btn btn-primary" })</td>
             </tr>
         }
     </table>
+    //đặt hàng
+    using (Html.BeginForm("DatHang", "GioHang"))
+    {
+        @*thiết kế form lưu thông tin khách hàng không có tài khoản*@
+        if (Session["TaiKhoan"] == null)
+        {
+            <div class="ThongTinMuaHang">
+                <table class="table">
+                    <tr>
+                        <td align="center" colspan="2"><b>Thông tin khách hàng</b></td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên</td>
+                        <td>
+                            @Html.TextBox("TenKH")
+                            <p style="color:red;" id="TB_TenKH"></p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Địa chỉ
+                        </td>
+                        <td>
+                            @Html.TextBox("DiaChi")
+                            <p style="color:red;" id="TB_DiaChi"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            @Html.TextBox("Email")
+                            <p style="color:red;" id="TB_Email"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại</td>
+                        <td>@Html.TextBox("SoDienThoai")</td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </div>
+            @*Kiểm validation thông qua jquery*@
+
+            <script>
+                $("#btnDatHang").click(function () {
+                    var loi = 0;
+                    if ($("#TenKH").val() == "") {
+                        $("#TB_TenKH").text("Tên khách hàng không được bỏ trống");
+                        loi++;
+                    }
+                    else {
+                        $("#TB_TenKH").text("");
+                    }
+
+                    if ($("#DiaChi").val() == "") {
+                        $("#TB_DiaChi").text("Tên khách hàng không được bỏ trống");
+                        loi++;
+                    }
+                    else {
+                        $("#TB_DiaChi").text("");
+                    }
+                    var loi;
+                    dinhdang = /^[0-9A-Za-z]+[0-9A-Za-z_]*@@[\w\d.]+\.\w{2,4}$/;
+                    KTemail = dinhdang.test($('#Email').val());
+                    if (!KTemail) {
+                        $('#TB_Email').text("Email không hợp lệ !");
+                        loi++;
+                    }
+                    if (loi != 0) {
+                        //Ngăn sự kiện submit đến server
+                        return false;
+                    }
+
+                });
+
+
+            </script>
+        }
+        <div class="order">
+            <input type="submit" value="Đặt Hàng" id="btnDatHang" />
+            @Html.ActionLink("Mua Tiếp", "Index", "Home", null, new { @class = "btn btn-success" })
+        </div>
+    }
 }
 
+
+
+<style>
+    input[type="submit"] {
+        background: #ff5757;
+        color: #fff;
+        padding: 8px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        margin: 0;
+    }
+</style>

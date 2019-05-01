@@ -10,7 +10,7 @@ namespace NguyenHoangLaptop.Controllers
 {
     public class SanPhamController : Controller
     {
-        QuanlibanhanglaptopEntities1 db = new QuanlibanhanglaptopEntities1();
+        QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
         // GET: SanPham
         public ActionResult SanPhamPartial()
         {
@@ -24,7 +24,7 @@ namespace NguyenHoangLaptop.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //nếu ko thì truy xuất csdl lấy id sản phẩm
-            SanPham sp = db.SanPham.SingleOrDefault(n => n.MaSP == id && n.DaXoa==true);
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id && n.DaXoa==true);
             if (sp == null)
             {
                 //thông báo nếu ko có sp đó
@@ -40,7 +40,7 @@ namespace NguyenHoangLaptop.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             // load sp theo tiêu chí mã loại sp và mã nsx
-            var lstSanPham = db.SanPham.Where(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX);
+            var lstSanPham = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX);
             if (lstSanPham.Count() == 0)
             {
                 //thông báo nếu ko có sp

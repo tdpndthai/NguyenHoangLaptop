@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+    padding: 20px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -2254,13 +2254,15 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+    text-align: left;
 }
+
 .table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
+
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,

@@ -3,7 +3,7 @@
 @model itemGioHang
 @{
     ViewBag.Title = "SuaGioHang";
-    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+    Layout = "~/Views/Layout/_HomeLayout.cshtml";
 }
 
 @{
@@ -30,10 +30,13 @@
                     <td>@item.MaSP @Html.Hidden("MaSP",item.MaSP)</td>
                     <td>@item.TenSP</td>
                     <td><img src="@Url.Content("~/Content/trangweb/images/"+item.HinhAnh)" width="50" height="50" /></td>
-                    <td>@Html.TextBox("SoLuong", item.SoLuong)</td>
+                    <td>
+                        @Html.TextBox("SoLuong", item.SoLuong,new {@class="SoLuongThayDoi" })
+                        <p id="TB_SoLuongThayDoi"></p>
+                    </td>
                     <td>@item.DonGia.ToString("#,##") VNĐ</td>
                     <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
-                    <td><input type="submit" value="Cập Nhật" /></td>
+                    <td><input type="submit" value="Cập Nhật" id="btnCapNhatGH"/></td>
                 </tr>
             }
         }
@@ -46,8 +49,21 @@
                 <td>@item.SoLuong</td>
                 <td>@item.DonGia.ToString("#,##") VNĐ</td>
                 <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
-                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP },new {@class= "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Xóa", "XoaGioHang", new { @MaSP = item.MaSP },new {@class= "btn btn-primary" })</td>
             </tr>
         }
     }
 </table>
+
+<script>
+    $("#btnCapNhatGH").click(function () {
+        var SoLuong = $(".SoLuongThayDoi").val();
+        //kiểm tra số lượng ko phải chữ
+        if (isNaN(SoLuong) == true || SoLuong < 0) {
+            alert(SoLuong);
+            $("TB_SoLuongThayDoi").text("Số lượng không hợp lệ");
+            return false;
+        }
+    });
+</script>

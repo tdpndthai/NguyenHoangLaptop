@@ -17,10 +17,10 @@ namespace NguyenHoangLaptop.Models
         //khởi tạo giỏ hàng
         public itemGioHang(int iMaSP)
         {
-            using (QuanlibanhanglaptopEntities1 db = new QuanlibanhanglaptopEntities1())
+            using (QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities())
             {
                 MaSP = iMaSP;
-                SanPham sp = db.SanPham.Single(n => n.MaSP == iMaSP);
+                SanPham sp = db.SanPhams.Single(n => n.MaSP == iMaSP);
                 TenSP = sp.TenSP; //hàm tạo lấy sản phẩm
                 HinhAnh = sp.HinhAnh;
                 DonGia = sp.DonGia.Value;
@@ -31,10 +31,10 @@ namespace NguyenHoangLaptop.Models
         }
         public itemGioHang(int iMaSP,int sl)
         {
-            using (QuanlibanhanglaptopEntities1 db = new QuanlibanhanglaptopEntities1())
+            using (QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities())
             {
                 MaSP = iMaSP;
-                SanPham sp = db.SanPham.Single(n => n.MaSP == iMaSP);
+                SanPham sp = db.SanPhams.Single(n => n.MaSP == iMaSP);
                 TenSP = sp.TenSP; //hàm tạo lấy sản phẩm
                 HinhAnh = sp.HinhAnh;
                 DonGia = sp.DonGia.Value;

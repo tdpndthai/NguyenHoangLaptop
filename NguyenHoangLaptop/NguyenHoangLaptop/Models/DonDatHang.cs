@@ -17,7 +17,7 @@ namespace NguyenHoangLaptop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonDatHang()
         {
-            this.ChiTietDonDatHang = new HashSet<ChiTietDonDatHang>();
+            this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
         }
     
         public int MaDDH { get; set; }
@@ -30,7 +30,7 @@ namespace NguyenHoangLaptop.Models
         public Nullable<bool> DaHuy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHang { get; set; }
+        public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
         public virtual KhachHang KhachHang { get; set; }
     }
 }
