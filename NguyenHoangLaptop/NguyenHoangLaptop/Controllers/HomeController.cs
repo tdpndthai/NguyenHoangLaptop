@@ -78,7 +78,7 @@ namespace NguyenHoangLaptop.Controllers
             if (tv != null)
             {
                 Session["TaiKhoan"] = tv;
-                return RedirectToAction("Index");
+                return Content("<script>window.location.reload();</script>");
             }
             return Content("Tên đăng nhập hoặc mật khẩu không đúng");
         }
@@ -86,7 +86,7 @@ namespace NguyenHoangLaptop.Controllers
         public ActionResult DangXuat()
         {
             Session["TaiKhoan"] = null;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
     }

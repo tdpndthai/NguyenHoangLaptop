@@ -231,5 +231,44 @@ namespace NguyenHoangLaptop.Controllers
             Session["GioHang"] = null;
             return RedirectToAction("XemGioHang");
         }
+        public ActionResult ThemSanPhamGioHang(int MaSP, string strURL)
+        {
+            //Kiểm tra sản phẩm có tồn tại trong CSDL hay không
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == MaSP);
+            if (sp == null)
+            {
+                //TRang đường dẫn không hợp lệ
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Lấy giỏ hàng
+            List<itemGioHang> lstGioHang = LayGioHang();
+            //Trường hợp 1 nếu sản phẩm đã tồn tại trong giỏ hàng 
+            itemGioHang spCheck = lstGioHang.SingleOrDefault(n => n.MaSP == MaSP);
+            if (spCheck != null)
+            {
+                //Kiểm tra số lượng tồn trước khi cho khách hàng mua hàng
+                if (sp.SoLuongTon < spCheck.SoLuong)
+                {
+                    return Content("<script> alert(\"Sản phẩm đã hết hàng!\")</script>");
+                }
+                spCheck.SoLuong++;
+                spCheck.ThanhTien = spCheck.SoLuong * spCheck.DonGia;
+                ViewBag.TongSoLuong = TinhTongSoLuong();
+                ViewBag.TongSoTien = TinhTongTien();
+                return PartialView("GioHangPartial");
+            }
+
+            itemGioHang itemGH = new itemGioHang(MaSP);
+            if (sp.SoLuongTon < itemGH.SoLuong)
+            {
+                return Content("<script> alert(\"Sản phẩm đã hết hàng!\")</script>");
+            }
+
+            lstGioHang.Add(itemGH);
+            ViewBag.TongSoLuong = TinhTongSoLuong();
+            ViewBag.TongSoTien = TinhTongTien();
+            return PartialView("GioHangPartial");
+        }
     }
 }

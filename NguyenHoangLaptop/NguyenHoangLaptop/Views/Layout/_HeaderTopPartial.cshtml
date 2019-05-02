@@ -15,7 +15,7 @@
                 {
                     ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
                     <li style="color:#3bd23d;">Chào mừng @tv.HoTen</li>
-                    @Html.ActionLink("Đăng Xuất","DangXuat",null,new {@style= "padding:15px; color:#3bd23d;" })
+                    @Html.ActionLink("Đăng Xuất","DangXuat","Home",null,new {@style= "padding:15px; color:#3bd23d;" })
                 }
                 else
                 {
