@@ -55,6 +55,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -131,9 +137,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuanLiSanPhamController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,12 +202,46 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\css\bootstrap.css" />
+    <Content Include="Content\Admin\css\clndr.css" />
+    <Content Include="Content\Admin\css\jqvmap.css" />
+    <Content Include="Content\Admin\css\nav.css" />
+    <Content Include="Content\Admin\css\style.css" />
+    <Content Include="Content\Admin\images\ar2.png" />
+    <Content Include="Content\Admin\images\arrows.png" />
+    <Content Include="Content\Admin\images\avatar.jpg" />
+    <Content Include="Content\Admin\images\avatar1.jpg" />
+    <Content Include="Content\Admin\images\avatar2.jpg" />
+    <Content Include="Content\Admin\images\img-sprite.png" />
+    <Content Include="Content\Admin\images\into.png" />
+    <Content Include="Content\Admin\images\into1.png" />
+    <Content Include="Content\Admin\images\logo.png" />
+    <Content Include="Content\Admin\images\pp.jpg" />
+    <Content Include="Content\Admin\images\pp0.jpg" />
+    <Content Include="Content\Admin\images\pp01.jpg" />
+    <Content Include="Content\Admin\images\settings.png" />
+    <Content Include="Content\Admin\images\tick-mark.png" />
+    <Content Include="Content\Admin\js\Chart1.js" />
+    <Content Include="Content\Admin\js\clndr.js" />
+    <Content Include="Content\Admin\js\easyResponsiveTabs.js" />
+    <Content Include="Content\Admin\js\jquery.easydropdown.js" />
+    <Content Include="Content\Admin\js\jquery.min.js" />
+    <Content Include="Content\Admin\js\jquery.nicescroll.js" />
+    <Content Include="Content\Admin\js\jquery.vmap.js" />
+    <Content Include="Content\Admin\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\Admin\js\jquery.vmap.world.js" />
+    <Content Include="Content\Admin\js\main.js" />
+    <Content Include="Content\Admin\js\moment-2.2.1.js" />
+    <Content Include="Content\Admin\js\site.js" />
+    <Content Include="Content\Admin\js\underscore-min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\trangweb\css\bootstrap.css" />
     <Content Include="Content\trangweb\css\flexslider.css" />
+    <Content Include="Content\trangweb\css\jquery-ui.css" />
     <Content Include="Content\trangweb\css\memenu.css" />
     <Content Include="Content\trangweb\css\style.css" />
     <Content Include="Content\trangweb\css\style_form_dangnhap.css" />
@@ -230,6 +273,8 @@
     <Content Include="Content\trangweb\images\slide1.jpg" />
     <Content Include="Content\trangweb\images\slide2.jpg" />
     <Content Include="Content\trangweb\images\slide3.jpg" />
+    <Content Include="Content\trangweb\js\jquery-1.10.2.js" />
+    <Content Include="Content\trangweb\js\jquery-ui.js" />
     <Content Include="Content\trangweb\js\jquery.flexslider.js" />
     <Content Include="Content\trangweb\js\jquery.min.js" />
     <Content Include="Content\trangweb\js\main.js" />
@@ -294,6 +339,12 @@
     <Content Include="Views\GioHang\ThongBao.cshtml" />
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
     <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
+    <Content Include="Views\TimKiem\TinKiemPartial.cshtml" />
+    <Content Include="Views\Layout\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\QuanLiSanPham\Index.cshtml" />
+    <Content Include="Views\QuanLiSanPham\TaoMoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

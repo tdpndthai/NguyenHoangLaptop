@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NguyenHoangLaptop.Models;
+using PagedList;
 
 namespace NguyenHoangLaptop.Controllers
 {
@@ -33,7 +34,7 @@ namespace NguyenHoangLaptop.Controllers
             return View(sp);
         }
         //load sp theo mã loại sp và mã nsx
-        public ActionResult SanPham(int? MaLoaiSP,int? MaNSX)
+        public ActionResult SanPham(int? MaLoaiSP,int? MaNSX,int? page)
         {
             if (MaLoaiSP == null || MaNSX == null)
             {
@@ -46,7 +47,17 @@ namespace NguyenHoangLaptop.Controllers
                 //thông báo nếu ko có sp
                 return HttpNotFound();
             }
-            return View(lstSanPham);
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
+            //phân trang
+            int PageSize = 9;
+            //tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            ViewBag.MaNSX = MaNSX;
+            return View(lstSanPham.OrderBy(n=>n.MaSP).ToPagedList(PageNumber,PageSize));
         }
     }
 }

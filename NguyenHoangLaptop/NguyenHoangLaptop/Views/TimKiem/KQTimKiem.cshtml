@@ -1,0 +1,71 @@
+﻿@using NguyenHoangLaptop.Models;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "KQTimKiem";
+    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@*form tìm kiếm ajax*@
+@using (Ajax.BeginForm("TinKiemPartial", "TimKiem", new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "kqtimkiem", InsertionMode = InsertionMode.Replace }))
+{
+    <div class="search">  
+        <input type="text" id="txtTimKiem" value="" name="stukhoa" placeholder="Nhập tên sản phẩm" />
+        <input type="submit" id="btnTimKiem" value="Tìm Kiếm" />
+    </div>
+}
+    <div id="kqtimkiem">
+        <div class="col-md-9 product1">
+            <div class=" bottom-product">
+                @*load sản phẩm*@
+                @foreach (var item in Model.OrderBy(n => n.DonGia))
+                {
+                    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                        <div class="product-at ">
+                            <a href="@Url.Action("ChiTietSanPham", "SanPham", new { @id = item.MaSP })">
+                                <img class="img-responsive" src="@Url.Content("~/Content/trangweb/images/" + item.HinhAnh)">
+                                <div class="pro-grid">
+                                    <span class="buy-in">Chi Tiết</span>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="tun">@item.TenSP</p>
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() })" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
+                        @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "number item_price" })
+                    </div>
+                }
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    <div>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("KQTimKiem", "TimKiem", new { page = page, @stukhoa = ViewBag.TuKhoa }))
+    </div>
+</div>
+
+
+
+        <style>
+            #btnTimKiem {
+                background-color: #4cae4c;
+                color: #fff;
+                padding: 0;
+                font-size: 1.1em;
+                font-weight: 600;
+                margin-right: 0;
+                border-radius: 0;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                left: 304px;
+                padding: 3px;
+            }
+
+            #txtTimKiem {
+                width: 300px;
+                border: 1px solid #000;
+            }
+        </style>
