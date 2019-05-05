@@ -140,8 +140,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuanLiDonHangController.cs" />
+    <Compile Include="Controllers\QuanLiPhieuNhapController.cs" />
     <Compile Include="Controllers\QuanLiSanPhamController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SubmidListModelController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -346,6 +350,15 @@
     <Content Include="Views\QuanLiSanPham\Index.cshtml" />
     <Content Include="Views\QuanLiSanPham\TaoMoi.cshtml" />
     <Content Include="Views\QuanLiSanPham\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLiPhieuNhap\NhapHang.cshtml" />
+    <Content Include="Views\SubmidListModel\Index.cshtml" />
+    <Content Include="Views\QuanLiPhieuNhap\DSSPHetHang.cshtml" />
+    <Content Include="Views\QuanLiPhieuNhap\NhapHangDon.cshtml" />
+    <Content Include="Views\QuanLiDonHang\ChuaThanhToan.cshtml" />
+    <Content Include="Views\QuanLiDonHang\ChuaGiao.cshtml" />
+    <Content Include="Views\QuanLiDonHang\DaGiaoDaThanhToan.cshtml" />
+    <Content Include="Views\QuanLiDonHang\DuyetDonHang.cshtml" />
+    <Content Include="Views\ThongKe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,7 +16,7 @@ namespace NguyenHoangLaptop.Models
     {
         public int MaChiTietPhieuNhap { get; set; }
         public Nullable<decimal> DonGiaNhap { get; set; }
-        public string SoLuongNhap { get; set; }
+        public int? SoLuongNhap { get; set; }
         public Nullable<int> MaPhieuNhap { get; set; }
         public Nullable<int> MaSP { get; set; }
     

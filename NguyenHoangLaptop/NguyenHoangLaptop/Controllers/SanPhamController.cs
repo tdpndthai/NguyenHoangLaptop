@@ -59,5 +59,15 @@ namespace NguyenHoangLaptop.Controllers
             ViewBag.MaNSX = MaNSX;
             return View(lstSanPham.OrderBy(n=>n.MaSP).ToPagedList(PageNumber,PageSize));
         }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db != null)
+                    db.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

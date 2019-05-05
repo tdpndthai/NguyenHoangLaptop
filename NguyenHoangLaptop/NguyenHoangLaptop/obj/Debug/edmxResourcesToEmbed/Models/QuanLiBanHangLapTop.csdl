@@ -30,7 +30,7 @@
     </Key>
     <Property Name="MaChiTietPhieuNhap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DonGiaNhap" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="SoLuongNhap" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SoLuongNhap" Type="Int32" />
     <Property Name="MaPhieuNhap" Type="Int32" />
     <Property Name="MaSP" Type="Int32" />
     <NavigationProperty Name="SanPham" Relationship="Self.FK_ChiTietPhieuNhap_ChiTietPhieuNhap" FromRole="ChiTietPhieuNhap" ToRole="SanPham" />
