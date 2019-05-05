@@ -1,7 +1,8 @@
-﻿@model NguyenHoangLaptop.Models.SanPham
+﻿
+@model NguyenHoangLaptop.Models.SanPham
 
 @{
-    ViewBag.Title = "TaoMoi";
+    ViewBag.Title = "ChinhSua";
     Layout = "~/Views/Layout/_AdminLayout.cshtml";
 }
 <link href="~/Content/trangweb/css/jquery-ui.css" rel="stylesheet" />
@@ -15,9 +16,9 @@
         $("#datepicker").datepicker();
     });
 </script>
-<h2>Tạo Mới Sản Phẩm</h2>
+<h2>Chỉnh Sửa Sản Phẩm</h2>
 
-@using (Html.BeginForm("TaoMoi", "QuanLiSanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ChinhSua", "QuanLiSanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -25,13 +26,7 @@
     <h4>SanPham</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.MaSP, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.MaSP, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaSP, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @Html.Hidden("MaSP", Model.MaSP);
     <div class="form-group">
         @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -51,8 +46,11 @@
     <div class="form-group">
         @Html.LabelFor(model => model.NgayCapNhat, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("NgayCapNhat", "", new { @id = "datepicker", @class = "date" })
-            @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+            @if (Model.NgayCapNhat != null)
+            {
+                @Html.TextBox("NgayCapNhat", Model.NgayCapNhat.Value.ToString("dd/MM/yyyy"), new { @id = "datepicker", @class = "date" })
+                @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+            }
         </div>
     </div>
 
@@ -67,7 +65,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <textarea name="MoTa"></textarea>
+            <textarea name="MoTa">@Model.MoTa</textarea>
             @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -75,40 +73,45 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="HinhAnh" name="HinhAnh" type="file" />
+            <input name="HinhAnh" type="file" />
             <span>@ViewBag.upload </span>
+            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)" width="250" height="100" />
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HinhAnh1, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="HinhAnh" name="HinhAnh" type="file" />
+            <input name="HinhAnh" type="file" />
             <span>@ViewBag.upload </span>
+            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)" width="250" height="100" />
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HinhAnh2, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="HinhAnh" name="HinhAnh" type="file" />
+            <input name="HinhAnh" type="file" />
             <span>@ViewBag.upload </span>
+            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)" width="250" height="100" />
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HinhAnh3, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="HinhAnh" name="HinhAnh" type="file" />
+            <input name="HinhAnh" type="file" />
             <span>@ViewBag.upload </span>
+            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)" width="250" height="100" />
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HinhAnh4, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="HinhAnh" name="HinhAnh" type="file" />
+            <input name="HinhAnh" type="file" />
             <span>@ViewBag.upload </span>
+            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)" width="250" height="100" />
         </div>
     </div>
 
@@ -160,12 +163,14 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-danger" />
+            <input type="submit" value="Lưu" class="btn btn-success" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index",new {@class= "btn btn-info" })
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-success" })
 </div>
+
+

@@ -80,8 +80,8 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.W
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Newtonsoft.Json.xml
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Antlr3.Runtime.pdb
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csprojAssemblyReference.cache
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CoreCompileInputs.cache
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CopyComplete
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.pdb
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csprojAssemblyReference.cache

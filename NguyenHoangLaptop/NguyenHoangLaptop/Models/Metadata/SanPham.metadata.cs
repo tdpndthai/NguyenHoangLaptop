@@ -13,7 +13,7 @@ namespace NguyenHoangLaptop.Models.Metadata
         {
             public int MaSP { get; set; }
             public string TenSP { get; set; }
-            public Nullable<decimal> DonGia { get; set; }
+            public decimal DonGia { get; set; }
             public Nullable<System.DateTime> NgayCapNhat { get; set; }
             public string CauHinh { get; set; }
             public string MoTa { get; set; }
