@@ -23,8 +23,8 @@
                     </a>
                 </div>
                 <p class="tun">@item.TenSP</p>
-                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSP=item.MaSP,@strUrl=Request.Url.ToString()})" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
-                @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "number item_price" })
+                <a href="#" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
+                @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-primary",@style="align-item:left;" })
             </div>
         }
     </div>
