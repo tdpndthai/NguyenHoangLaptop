@@ -57,7 +57,7 @@ $(window).load(function() {
             <div class="available">
                 Cấu Hình: @Html.Raw(@Model.CauHinh)
             </div>
-            <a href="#" class="add-cart item_add">Thêm Vào Giỏ Hàng</a>
+            @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = Model.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "add-cart item_add" })
 
         </div>
     </div>

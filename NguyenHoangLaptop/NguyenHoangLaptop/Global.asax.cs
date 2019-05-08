@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace NguyenHoangLaptop
@@ -32,6 +34,18 @@ namespace NguyenHoangLaptop
             Application.Lock();
             Application["SoNguoiOnline"] = (int)Application["SoNguoiOnline"] - 1;
             Application.UnLock();
+        }
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+
+            HttpCookie TaiKhoanCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (TaiKhoanCookie != null)
+            {
+                var authTicket = FormsAuthentication.Decrypt(TaiKhoanCookie.Value);
+                var Quyen = authTicket.UserData.Split(new Char[] { ',' });
+                GenericPrincipal userPrincipal = new GenericPrincipal(new GenericIdentity(authTicket.Name), Quyen);
+                Context.User = userPrincipal;
+            }
         }
     }
 }

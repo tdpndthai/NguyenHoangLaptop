@@ -12,14 +12,13 @@ namespace NguyenHoangLaptop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietPhieuNhap
+    public partial class Quyen_LoaiTV
     {
-        public int MaChiTietPhieuNhap { get; set; }
-        public Nullable<decimal> DonGiaNhap { get; set; }
-        public Nullable<int> SoLuongNhap { get; set; }
-        public Nullable<int> MaPhieuNhap { get; set; }
-        public Nullable<int> MaSP { get; set; }
+        public int MaLoaiTV { get; set; }
+        public string MaQuyen { get; set; }
+        public string GhiChu { get; set; }
     
-        public virtual SanPham SanPham { get; set; }
+        public virtual LoaiThanhVien LoaiThanhVien { get; set; }
+        public virtual Quyen Quyen { get; set; }
     }
 }

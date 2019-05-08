@@ -7,6 +7,7 @@ using NguyenHoangLaptop.Models;
 
 namespace NguyenHoangLaptop.Controllers
 {
+    [Authorize(Roles = "QuanTri")]
     public class ThongKeController : Controller
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();

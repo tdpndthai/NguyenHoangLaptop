@@ -8,6 +8,7 @@ using PagedList;
 
 namespace NguyenHoangLaptop.Controllers
 {
+    [Authorize(Roles = "QuanTri,QuanLyDonHang,QuanLySanPham")]
     public class TimKiemController : Controller
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();

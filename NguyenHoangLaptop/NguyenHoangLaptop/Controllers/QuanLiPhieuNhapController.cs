@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace NguyenHoangLaptop.Controllers
 {
+    [Authorize(Roles = "QuanTri")]
     public class QuanLiPhieuNhapController : Controller
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();

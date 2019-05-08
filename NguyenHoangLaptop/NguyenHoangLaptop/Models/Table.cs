@@ -12,14 +12,8 @@ namespace NguyenHoangLaptop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietPhieuNhap
+    public partial class Table
     {
-        public int MaChiTietPhieuNhap { get; set; }
-        public Nullable<decimal> DonGiaNhap { get; set; }
-        public Nullable<int> SoLuongNhap { get; set; }
-        public Nullable<int> MaPhieuNhap { get; set; }
-        public Nullable<int> MaSP { get; set; }
-    
-        public virtual SanPham SanPham { get; set; }
+        public int Id { get; set; }
     }
 }

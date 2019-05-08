@@ -29,6 +29,10 @@
         <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_LoaiSanPham" />
         <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_NhaCungCap" />
         <AssociationConnector Association="QuanlibanhanglaptopModel.FK_SanPham_NhaSanXuat" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.Quyen" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="QuanlibanhanglaptopModel.Quyen_LoaiTV" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_Quyen_LoaiTV_LoaiTV" />
+        <AssociationConnector Association="QuanlibanhanglaptopModel.FK_Quyen_LoaiTV_Quyen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

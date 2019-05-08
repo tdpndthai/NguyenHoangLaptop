@@ -37,5 +37,7 @@ namespace NguyenHoangLaptop.Models
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
+        public virtual DbSet<Quyen> Quyens { get; set; }
+        public virtual DbSet<Quyen_LoaiTV> Quyen_LoaiTV { get; set; }
     }
 }

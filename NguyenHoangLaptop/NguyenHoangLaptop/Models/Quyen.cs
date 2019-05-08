@@ -12,21 +12,17 @@ namespace NguyenHoangLaptop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LoaiThanhVien
+    public partial class Quyen
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LoaiThanhVien()
+        public Quyen()
         {
-            this.ThanhViens = new HashSet<ThanhVien>();
             this.Quyen_LoaiTV = new HashSet<Quyen_LoaiTV>();
         }
     
-        public int MaLoaiTV { get; set; }
-        public string TenLoai { get; set; }
-        public Nullable<int> UuDai { get; set; }
+        public string MaQuyen { get; set; }
+        public string TenQuyen { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThanhVien> ThanhViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Quyen_LoaiTV> Quyen_LoaiTV { get; set; }
     }

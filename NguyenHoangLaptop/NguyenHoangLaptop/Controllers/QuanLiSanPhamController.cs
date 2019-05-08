@@ -9,6 +9,7 @@ using NguyenHoangLaptop.Models;
 
 namespace NguyenHoangLaptop.Controllers
 {
+    [Authorize(Roles = "QuanTri")]
     public class QuanLiSanPhamController : Controller
     {
         // GET: QuanLiSanPham
@@ -53,9 +54,9 @@ namespace NguyenHoangLaptop.Controllers
                             //Kiểm tra hình ảnh tồn tại
 
                             //Lấy tên hình ảnh
-                            var fileName = Path.GetFileName(HinhAnh[0].FileName);
+                            string fileName = Path.GetFileName(HinhAnh[i].FileName);
                             //Lấy hình ảnh chuyển vào thư mục hình ảnh 
-                            var path = Path.Combine(Server.MapPath("~/Content/trangweb/images"), fileName);
+                            string path = Path.Combine(Server.MapPath("~/Content/trangweb/images"), fileName);
                             //Nếu thư mục chứa hình ảnh đó rồi thì xuất ra thông báo
                             if (System.IO.File.Exists(path))
                             {
@@ -72,11 +73,14 @@ namespace NguyenHoangLaptop.Controllers
             {
                 return View(sp);
             }
-            sp.HinhAnh = HinhAnh[0].FileName;
-            sp.HinhAnh = HinhAnh[1].FileName;
-            sp.HinhAnh = HinhAnh[2].FileName;
-            sp.HinhAnh = HinhAnh[3].FileName;
-            sp.HinhAnh = HinhAnh[4].FileName;
+            else
+            {
+                sp.HinhAnh = HinhAnh[0].FileName;
+                sp.HinhAnh = HinhAnh[1].FileName;
+                sp.HinhAnh = HinhAnh[2].FileName;
+                sp.HinhAnh = HinhAnh[3].FileName;
+                sp.HinhAnh = HinhAnh[4].FileName;
+            }
             db.SanPhams.Add(sp);
             db.SaveChanges();
             return RedirectToAction("Index");
