@@ -13,7 +13,7 @@
         @*load sản phẩm*@
         @foreach (var item in Model.OrderBy(n => n.DonGia))
         {
-            <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+            <div class="col-md-4 bottom-cd simpleCart_shelfItem" style="border:3px solid #21ff00; border-radius:8px;">
                 <div class="product-at ">
                     <a href="@Url.Action("ChiTietSanPham","SanPham",new { @id=item.MaSP})">
                         <img class="img-responsive" src="@Url.Content("~/Content/trangweb/images/"+item.HinhAnh)">
@@ -24,7 +24,7 @@
                 </div>
                 <p class="tun">@item.TenSP</p>
                 <a href="#" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.Value.ToString("#,##") VNĐ</p></a>
-                @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-primary",@style="align-item:left;" })
+                @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = item.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-primary",@style="float:left;" })
             </div>
         }
     </div>

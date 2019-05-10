@@ -29,7 +29,8 @@ namespace NguyenHoangLaptop.Controllers
             //tạo biến số trang hiện tại
             int PageNumber = (page ?? 1);
             //tìm theo tên sp
-            var lstSP = db.SanPhams.Where(n => n.TenSP.Contains(stukhoa));
+            var lstSP = db.SanPhams.Where(n => n.TenSP.Contains(stukhoa) && n.DonGia<=10000000 &&n.DonGia >=1000000);
+            
             ViewBag.TuKhoa = stukhoa;
             return View(lstSP.OrderBy(n => n.TenSP).ToPagedList(PageNumber, PageSize));
         }
@@ -45,5 +46,6 @@ namespace NguyenHoangLaptop.Controllers
             ViewBag.TuKhoa = stukhoa;
             return PartialView(lstSP.OrderBy(n=>n.DonGia));
         }
+
     }
 }

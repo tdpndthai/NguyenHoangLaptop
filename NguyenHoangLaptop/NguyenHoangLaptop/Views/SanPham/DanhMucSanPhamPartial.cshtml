@@ -1,0 +1,29 @@
+﻿@using NguyenHoangLaptop.Models;
+
+@model IEnumerable<SanPham>
+
+
+<ul class="menu">
+    @*gom nhóm theo loại sản phẩm*@
+    @foreach (var groupItem in Model.GroupBy(n => n.LoaiSanPham))
+    {
+        if (groupItem.Key != null)
+        {
+            <li class="item1">
+                <a href="#">@groupItem.Key.TenLoai </a>
+                <ul class="cute">
+                    @foreach (var item in groupItem.GroupBy(n => n.NhaSanXuat))
+                    {
+                        if (item.Key != null)
+                        {
+                            @*truyền mã loại sp và mã nsx vào*@
+                            <li class="subitem1"><a href="@Url.Action("SanPham","SanPham",new {@MaLoaiSP=groupItem.Key.MaLoaiSP,@MaNSX=item.Key.MaNSX })">@item.Key.TenNSX</a></li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    }
+
+</ul>
+

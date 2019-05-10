@@ -13,6 +13,7 @@ namespace NguyenHoangLaptop.Controllers
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
         // GET: SanPham
+        [ChildActionOnly]
         public ActionResult SanPhamPartial()
         {
             return PartialView();
@@ -25,7 +26,10 @@ namespace NguyenHoangLaptop.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //nếu ko thì truy xuất csdl lấy id sản phẩm
-            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id && n.DaXoa==true);
+            //db.SanPhams.Where(n => n.MaLoaiSP == 1 && n.MaNSX == 1);
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
+            //ViewBag.sp = sp;
+
             if (sp == null)
             {
                 //thông báo nếu ko có sp đó
@@ -58,6 +62,12 @@ namespace NguyenHoangLaptop.Controllers
             ViewBag.MaLoaiSP = MaLoaiSP;
             ViewBag.MaNSX = MaNSX;
             return View(lstSanPham.OrderBy(n=>n.MaSP).ToPagedList(PageNumber,PageSize));
+        }
+        public ActionResult DanhMucSanPhamPartial()
+        {
+            //load tất cả sp
+            System.Data.Entity.DbSet<SanPham> lstsp = db.SanPhams;
+            return PartialView(lstsp);
         }
         protected override void Dispose(bool disposing)
         {

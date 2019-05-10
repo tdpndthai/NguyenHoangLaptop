@@ -1,9 +1,4 @@
-﻿<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,24 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="of-left">
                         <h3 class="cate">Danh Mục Sản Phẩm</h3>
                     </div>
-                    <ul class="menu">
-                        <li class="item1">
-                            <a href="#">Laptop Dell </a>
-                            <ul class="cute">
-                                <li class="subitem1"><a href="#">Dell Latitude </a></li>
-                                <li class="subitem2"><a href="#">Dell Precision </a></li>
-                                <li class="subitem3"><a href="#">Dell Inspiron </a></li>
-                            </ul>
-                        </li>
-                        <li class="item2">
-                            <a href="#">Laptop HP </a>
-                            <ul class="cute">
-                                <li class="subitem1"><a href="#">HP EliteBook </a></li>
-                                <li class="subitem2"><a href="#">HP Probook </a></li>
-                                <li class="subitem3"><a href="#">HP Zbook</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    @Html.Action("DanhMucSanPhamPartial","SanPham")
                 </div>
                 <!--initiate accordion-->
                 <script type="text/javascript">
@@ -95,9 +73,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     });
                 </script>
             </div>
-        @RenderBody()
+            @RenderBody()
+        </div>
     </div>
-</div>
     <!--//content-->
     <div class="footer">
         <div class="container">
@@ -114,30 +92,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
                 <div class="col-md-4 amet-sed ">
-                    <h4>CONTACT US</h4>
+                    <h4>Liên Hệ Với Chúng Tôi</h4>
 
                     <p>
-                        Contrary to popular belief
+                        Qua 2 anh quản lí
                     </p>
-                    <p>The standard chunk</p>
-                    <p>office:  +12 34 995 0792</p>
-                    <ul class="social">
-                        <li><a href="#"><i> </i></a></li>
-                        <li><a href="#"><i class="twitter"> </i></a></li>
-                        <li><a href="#"><i class="rss"> </i></a></li>
-                        <li><a href="#"><i class="gmail"> </i></a></li>
-
-                    </ul>
+                    <p>Quản Lí 1: Thái-shorturl.at/abczF </p>
+                    <p>Quản Lí 2: Hiếu-shorturl.at/apRY3</p>
                 </div>
                 <div class="col-md-4 amet-sed">
-                    <h4>Newsletter</h4>
+                    <h4>Thư Mới</h4>
                     <p>
-                        Sign Up to get all news update
-                        and promo
+                        Để Lại Thông Để Nhận Thêm Thông Tin Ưu Đãi
                     </p>
                     <form>
                         <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-                        <input type="submit" value="Sign up">
+                        <input type="submit" value="Gửi">
                     </form>
                 </div>
                 <div class="clearfix"> </div>

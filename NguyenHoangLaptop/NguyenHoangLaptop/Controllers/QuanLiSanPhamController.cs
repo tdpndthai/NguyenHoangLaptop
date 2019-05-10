@@ -9,11 +9,11 @@ using NguyenHoangLaptop.Models;
 
 namespace NguyenHoangLaptop.Controllers
 {
-    [Authorize(Roles = "QuanTri")]
+    [Authorize(Roles = "QuanTri,QuanLiDonHang,QuanLiSanPham,PhanQuyen")]
     public class QuanLiSanPhamController : Controller
     {
         // GET: QuanLiSanPham
-        QuanlibanhanglaptopEntities db=new QuanlibanhanglaptopEntities();
+        private QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
         public ActionResult Index()
         {
             return View(db.SanPhams.Where(n => n.DaXoa == true));
@@ -22,14 +22,14 @@ namespace NguyenHoangLaptop.Controllers
         public ActionResult TaoMoi()
         {
             //load dropdownlist nhà cung cấp,nsx,sp
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n=>n.TenNCC),"MaNCC","TenNCC");
-            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n=>n.MaLoaiSP), "MaLoaiSP", "TenLoai");
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n=>n.MaNSX), "MaNSX", "TenNSX");
+            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai");
+            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.MaNSX), "MaNSX", "TenNSX");
             return View();
         }
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult TaoMoi(SanPham sp,HttpPostedFileBase[] HinhAnh)
+        public ActionResult TaoMoi(SanPham sp, HttpPostedFileBase[] HinhAnh)
         {
             //load dropdownlist nhà cung cấp,nsx,sp
             ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
@@ -54,7 +54,7 @@ namespace NguyenHoangLaptop.Controllers
                             //Kiểm tra hình ảnh tồn tại
 
                             //Lấy tên hình ảnh
-                            string fileName = Path.GetFileName(HinhAnh[i].FileName);
+                            string fileName = Path.GetFileName(HinhAnh[0].FileName);
                             //Lấy hình ảnh chuyển vào thư mục hình ảnh 
                             string path = Path.Combine(Server.MapPath("~/Content/trangweb/images"), fileName);
                             //Nếu thư mục chứa hình ảnh đó rồi thì xuất ra thông báo
@@ -95,9 +95,9 @@ namespace NguyenHoangLaptop.Controllers
                 return HttpNotFound();
             }
             //load dropdownlist nhà cung cấp,nsx,sp
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC",sp.MaNCC);
-            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai",sp.MaLoaiSP);
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.MaNSX), "MaNSX", "TenNSX",sp.MaNSX);
+            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", sp.MaNCC);
+            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai", sp.MaLoaiSP);
+            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.MaNSX), "MaNSX", "TenNSX", sp.MaNSX);
             return View(sp);
         }
         [ValidateInput(false)]
@@ -115,23 +115,23 @@ namespace NguyenHoangLaptop.Controllers
         [HttpGet]
         public ActionResult Xoa(int? id)
         {
-            //lấy sp cần chỉnh sửa dựa vào id
-            if (id == null)
-            {
-                Response.StatusCode = 404;
-            }
+            ////lấy sp cần chỉnh sửa dựa vào id
+            //if (id == null)
+            //{
+            //    Response.StatusCode = 404;
+            //}
             SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
-            if (sp == null)
-            {
-                return HttpNotFound();
-            }
-            //load dropdownlist nhà cung cấp,nsx,sp
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", sp.MaNCC);
-            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai", sp.MaLoaiSP);
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.MaNSX), "MaNSX", "TenNSX", sp.MaNSX);
+            //if (sp == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            ////load dropdownlist nhà cung cấp,nsx,sp
+            //ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", sp.MaNCC);
+            //ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoai", sp.MaLoaiSP);
+            //ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.MaNSX), "MaNSX", "TenNSX", sp.MaNSX);
             db.SanPhams.Remove(sp);
             db.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
         protected override void Dispose(bool disposing)
         {

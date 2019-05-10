@@ -85,3 +85,9 @@ C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\Nguyen
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CopyComplete
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.dll
 C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.pdb
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Net.Http.Formatting.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Http.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Http.WebHost.dll
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Net.Http.Formatting.xml
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Http.xml
+C:\Users\nguye\source\repos\NguyenHoangLaptop\NguyenHoangLaptop\bin\System.Web.Http.WebHost.xml

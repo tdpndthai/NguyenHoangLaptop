@@ -52,13 +52,40 @@ $(window).load(function() {
                 </ul>
                 <div class="clearfix"> </div>
             </div>
-
             <h5 class="item_price">Giá tiền :@Model.DonGia.Value.ToString("#,##") VNĐ</h5>
             <div class="available">
-                Cấu Hình: @Html.Raw(@Model.CauHinh)
+                <table border="1">
+                    <tr>
+                        <th>Thông Số</th>
+                        <th>Chi Tiết</th>
+                    </tr>
+                    <tr>
+                        <td>Nhà Cung Cấp:</td>
+                        <td>@Model.NhaCungCap.TenNCC</td>
+                    </tr>
+                    <tr>
+                        <td>Loại sản phẩm :</td>
+                        <td>@Model.LoaiSanPham.TenLoai</td>
+                    </tr>
+                    <tr>
+                        <td>Nhà Sản Xuất :</td>
+                        <td>@Model.NhaSanXuat.TenNSX</td>
+                    </tr>
+                    <tr>
+                        <td>Cấu Hình:</td>
+                        <td>@Html.Raw(@Model.CauHinh)</td>
+                    </tr>
+                    <tr>
+                        <td>Số Lượng Còn lại : </td>
+                        <td> @Model.SoLuongTon</td>
+                    </tr>
+                    <tr>
+                        <td>Mới Nhập Thêm :</td>
+                        <td>@Model.Moi</td>
+                    </tr>
+                </table>
             </div>
             @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = Model.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "add-cart item_add" })
-
         </div>
     </div>
     <div class="clearfix"> </div>
