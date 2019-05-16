@@ -1,94 +1,97 @@
 ﻿@using NguyenHoangLaptop.Models;
-@model SanPham
+@model ChiTietSanPham
 @{
     ViewBag.Title = "ChiTietSanPham";
     Layout = "~/Views/Layout/_ProductLayout.cshtml";
 }
-<div class="col-md-9 product-price1">
-    <div class="col-md-5 single-top">
-        <div class="flexslider">
-            <ul class="slides">
-                <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)">
-                    <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)" />
-                </li>                
-                <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)">
-                    <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)" />
-                </li>                
-                <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)">
-                    <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)" />
-                </li>                
-                <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)">
-                    <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)" />
-                </li>                      
-                <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)">
-                    <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)" />
-                </li>                
-            </ul>
-        </div>
-        <!-- FlexSlider -->
-        <script defer src="~/Content/trangweb/js/jquery.flexslider.js"></script>
-        <link rel="stylesheet" href="~/Content/trangweb/css/flexslider.css" type="text/css" media="screen" />
 
-        <script>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: "thumbnails"
-  });
-});
-        </script>
-    </div>
-    <div class="col-md-7 single-top-in simpleCart_shelfItem">
-        <div class="single-para ">
-            <h4>@Model.TenSP</h4>
-            <div class="star-on">
-                <ul class="star-footer">
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i> </i></a></li>
+    <div class="col-md-9 product-price1">
+        <div class="col-md-5 single-top">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)">
+                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)" />
+                    </li>
+                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)">
+                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)" />
+                    </li>
+                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)">
+                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)" />
+                    </li>
+                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)">
+                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)" />
+                    </li>
+                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)">
+                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)" />
+                    </li>
                 </ul>
-                <div class="clearfix"> </div>
             </div>
-            <h5 class="item_price">Giá tiền :@Model.DonGia.Value.ToString("#,##") VNĐ</h5>
-            <div class="available">
-                <table border="1">
-                    <tr>
-                        <th>Thông Số</th>
-                        <th>Chi Tiết</th>
-                    </tr>
-                    <tr>
-                        <td>Nhà Cung Cấp:</td>
-                        <td>@Model.NhaCungCap.TenNCC</td>
-                    </tr>
-                    <tr>
-                        <td>Loại sản phẩm :</td>
-                        <td>@Model.LoaiSanPham.TenLoai</td>
-                    </tr>
-                    <tr>
-                        <td>Nhà Sản Xuất :</td>
-                        <td>@Model.NhaSanXuat.TenNSX</td>
-                    </tr>
-                    <tr>
-                        <td>Cấu Hình:</td>
-                        <td>@Html.Raw(@Model.CauHinh)</td>
-                    </tr>
-                    <tr>
-                        <td>Số Lượng Còn lại : </td>
-                        <td> @Model.SoLuongTon</td>
-                    </tr>
-                    <tr>
-                        <td>Mới Nhập Thêm :</td>
-                        <td>@Model.Moi</td>
-                    </tr>
-                </table>
-            </div>
-            @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = Model.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "add-cart item_add" })
+            <!-- FlexSlider -->
+            <script defer src="~/Content/trangweb/js/jquery.flexslider.js"></script>
+            <link rel="stylesheet" href="~/Content/trangweb/css/flexslider.css" type="text/css" media="screen" />
+
+            <script>
+                // Can also be used with $(document).ready()
+                $(window).load(function () {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        controlNav: "thumbnails"
+                    });
+                });
+            </script>
         </div>
+        <div class="col-md-7 single-top-in simpleCart_shelfItem">
+            <div class="single-para ">
+                <h4>@Model.TenSP</h4>
+                <div class="star-on">
+                    <ul class="star-footer">
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <h5 class="item_price">Giá tiền :@Model.DonGia.Value.ToString("#,##") VNĐ</h5>
+                <div class="available">
+                    <table border="1">
+                        <tr>
+                            <th>Thông Số</th>
+                            <th>Chi Tiết</th>
+                        </tr>
+                        <tr>
+                            <td>Nhà Cung Cấp</td>
+                            <td>@Model.TenNCC</td>
+                        </tr>
+                        <tr>
+                            <td>Loại sản phẩm </td>
+                            <td>@Model.TenLoai</td>
+                        </tr>
+                        <tr>
+                            <td>Nhà Sản Xuất</td>
+                            <td>@Model.TenNSX</td>
+                        </tr>
+                        <tr>
+                            <td>Cấu Hình</td>
+                            <td>@Html.Raw(@Model.CauHinh)</td>
+                        </tr>
+                        <tr>
+                            <td>Số Lượng Còn Lại</td>
+                            <td> @Model.SoLuongTon</td>
+                        </tr>
+                        <tr>
+                            <td>Mới Nhập Thêm</td>
+                            <td>@Model.Moi</td>
+                        </tr>
+                    </table>
+                </div>
+                @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemSanPhamGioHang", "GioHang", new { @MaSP = Model.MaSP, @strUrl = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "giohang", InsertionMode = InsertionMode.Replace }, new { @class = "add-cart item_add" })
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <!---->
     </div>
-    <div class="clearfix"> </div>
-    <!---->
-</div>
+
+
 

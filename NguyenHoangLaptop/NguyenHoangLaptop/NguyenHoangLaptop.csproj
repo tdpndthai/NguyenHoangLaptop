@@ -172,6 +172,9 @@
     <Compile Include="Models\ChiTietPhieuNhap.cs">
       <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietSanPham.cs">
+      <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>QuanLiBanHangLapTop.tt</DependentUpon>
     </Compile>
@@ -388,7 +391,6 @@
     <Content Include="Views\PhanQuyen\PhanQuyen.cshtml" />
     <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
-    <Content Include="Views\KiemTra\Index.cshtml" />
     <Content Include="Views\SanPham\DanhMucSanPhamPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

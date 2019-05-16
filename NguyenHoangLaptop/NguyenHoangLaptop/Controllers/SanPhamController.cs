@@ -1,35 +1,36 @@
-﻿using System;
+﻿using NguyenHoangLaptop.Models;
+using PagedList;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using NguyenHoangLaptop.Models;
-using PagedList;
 
 namespace NguyenHoangLaptop.Controllers
 {
     public class SanPhamController : Controller
     {
-        QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
+        private QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
+
         // GET: SanPham
         [ChildActionOnly]
         public ActionResult SanPhamPartial()
         {
             return PartialView();
         }
+
         public ActionResult ChiTietSanPham(int? id)
         {
-            //kiểm tra xem tham số truyền vào có rỗng hay không?
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //nếu ko thì truy xuất csdl lấy id sản phẩm
             //db.SanPhams.Where(n => n.MaLoaiSP == 1 && n.MaNSX == 1);
-            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
+            //SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
             //ViewBag.sp = sp;
-
+            ChiTietSanPham sp = db.ChiTietSanPhams.SingleOrDefault(n => n.MaSP == id);
             if (sp == null)
             {
                 //thông báo nếu ko có sp đó
@@ -37,8 +38,9 @@ namespace NguyenHoangLaptop.Controllers
             }
             return View(sp);
         }
+
         //load sp theo mã loại sp và mã nsx
-        public ActionResult SanPham(int? MaLoaiSP,int? MaNSX,int? page)
+        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX, int? page)
         {
             if (MaLoaiSP == null || MaNSX == null)
             {
@@ -61,14 +63,16 @@ namespace NguyenHoangLaptop.Controllers
             int PageNumber = (page ?? 1);
             ViewBag.MaLoaiSP = MaLoaiSP;
             ViewBag.MaNSX = MaNSX;
-            return View(lstSanPham.OrderBy(n=>n.MaSP).ToPagedList(PageNumber,PageSize));
+            return View(lstSanPham.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
+        [ChildActionOnly]
         public ActionResult DanhMucSanPhamPartial()
         {
             //load tất cả sp
             System.Data.Entity.DbSet<SanPham> lstsp = db.SanPhams;
             return PartialView(lstsp);
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

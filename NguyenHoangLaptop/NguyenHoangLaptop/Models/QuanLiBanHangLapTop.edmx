@@ -159,6 +159,28 @@
           <Property Name="CauTraLoi" Type="nvarchar(max)" />
           <Property Name="MaLoaiTV" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ChiTietSanPham">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="int" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="150" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CauHinh" Type="nvarchar(max)" />
+          <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
+          <Property Name="HinhAnh1" Type="nchar" MaxLength="100" />
+          <Property Name="HinhAnh2" Type="nchar" MaxLength="100" />
+          <Property Name="HinhAnh3" Type="nchar" MaxLength="100" />
+          <Property Name="HinhAnh4" Type="nchar" MaxLength="100" />
+          <Property Name="MaLoaiSP" Type="int" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="150" />
+          <Property Name="TenNCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="TenNSX" Type="nvarchar" MaxLength="100" />
+          <Property Name="SoLuongTon" Type="int" />
+          <Property Name="Moi" Type="int" />
+        </EntityType>
         <Association Name="FK_BinhLuan_SanPham">
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -370,6 +392,25 @@
           <EntitySet Name="Quyen_LoaiTV" EntityType="Self.Quyen_LoaiTV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhVien" EntityType="Self.ThanhVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChiTietSanPham" EntityType="Self.ChiTietSanPham" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ChiTietSanPham].[MaSP] AS [MaSP], 
+    [ChiTietSanPham].[TenSP] AS [TenSP], 
+    [ChiTietSanPham].[DonGia] AS [DonGia], 
+    [ChiTietSanPham].[CauHinh] AS [CauHinh], 
+    [ChiTietSanPham].[HinhAnh] AS [HinhAnh], 
+    [ChiTietSanPham].[HinhAnh1] AS [HinhAnh1], 
+    [ChiTietSanPham].[HinhAnh2] AS [HinhAnh2], 
+    [ChiTietSanPham].[HinhAnh3] AS [HinhAnh3], 
+    [ChiTietSanPham].[HinhAnh4] AS [HinhAnh4], 
+    [ChiTietSanPham].[MaLoaiSP] AS [MaLoaiSP], 
+    [ChiTietSanPham].[TenLoai] AS [TenLoai], 
+    [ChiTietSanPham].[TenNCC] AS [TenNCC], 
+    [ChiTietSanPham].[TenNSX] AS [TenNSX], 
+    [ChiTietSanPham].[SoLuongTon] AS [SoLuongTon], 
+    [ChiTietSanPham].[Moi] AS [Moi]
+    FROM [dbo].[ChiTietSanPham] AS [ChiTietSanPham]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BinhLuan_SanPham" Association="Self.FK_BinhLuan_SanPham">
             <End Role="SanPham" EntitySet="SanPham" />
             <End Role="BinhLuan" EntitySet="BinhLuan" />
@@ -791,6 +832,7 @@
             <End Role="Quyen" EntitySet="Quyens" />
             <End Role="Quyen_LoaiTV" EntitySet="Quyen_LoaiTV" />
           </AssociationSet>
+          <EntitySet Name="ChiTietSanPhams" EntityType="QuanlibanhanglaptopModel.ChiTietSanPham" />
         </EntityContainer>
         <Association Name="FK_SanPham_LoaiSanPham">
           <End Type="QuanlibanhanglaptopModel.LoaiSanPham" Role="LoaiSanPham" Multiplicity="0..1">
@@ -881,6 +923,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ChiTietSanPham">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="Int32" Nullable="false" />
+          <Property Name="TenSP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CauHinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="HinhAnh1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="HinhAnh2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="HinhAnh3" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="HinhAnh4" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="MaLoaiSP" Type="Int32" />
+          <Property Name="TenLoai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TenNCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TenNSX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuongTon" Type="Int32" />
+          <Property Name="Moi" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1051,6 +1113,27 @@
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
                 <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
                 <ScalarProperty Name="MaLoaiTV" ColumnName="MaLoaiTV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChiTietSanPhams">
+            <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.ChiTietSanPham">
+              <MappingFragment StoreEntitySet="ChiTietSanPham">
+                <ScalarProperty Name="Moi" ColumnName="Moi" />
+                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+                <ScalarProperty Name="TenNSX" ColumnName="TenNSX" />
+                <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
+                <ScalarProperty Name="HinhAnh4" ColumnName="HinhAnh4" />
+                <ScalarProperty Name="HinhAnh3" ColumnName="HinhAnh3" />
+                <ScalarProperty Name="HinhAnh2" ColumnName="HinhAnh2" />
+                <ScalarProperty Name="HinhAnh1" ColumnName="HinhAnh1" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="CauHinh" ColumnName="CauHinh" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

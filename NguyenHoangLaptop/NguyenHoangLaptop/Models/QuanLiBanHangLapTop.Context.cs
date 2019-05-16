@@ -39,6 +39,6 @@ namespace NguyenHoangLaptop.Models
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
         public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<Quyen_LoaiTV> Quyen_LoaiTV { get; set; }
-        public object Departments { get; internal set; }
+        public virtual DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }
     }
 }

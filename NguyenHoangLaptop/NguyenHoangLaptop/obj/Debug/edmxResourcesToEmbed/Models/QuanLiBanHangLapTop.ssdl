@@ -154,6 +154,28 @@
     <Property Name="CauTraLoi" Type="nvarchar(max)" />
     <Property Name="MaLoaiTV" Type="int" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ChiTietSanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="150" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CauHinh" Type="nvarchar(max)" />
+    <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
+    <Property Name="HinhAnh1" Type="nchar" MaxLength="100" />
+    <Property Name="HinhAnh2" Type="nchar" MaxLength="100" />
+    <Property Name="HinhAnh3" Type="nchar" MaxLength="100" />
+    <Property Name="HinhAnh4" Type="nchar" MaxLength="100" />
+    <Property Name="MaLoaiSP" Type="int" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenNCC" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenNSX" Type="nvarchar" MaxLength="100" />
+    <Property Name="SoLuongTon" Type="int" />
+    <Property Name="Moi" Type="int" />
+  </EntityType>
   <Association Name="FK_BinhLuan_SanPham">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -365,6 +387,25 @@
     <EntitySet Name="Quyen_LoaiTV" EntityType="Self.Quyen_LoaiTV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThanhVien" EntityType="Self.ThanhVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiTietSanPham" EntityType="Self.ChiTietSanPham" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ChiTietSanPham].[MaSP] AS [MaSP], 
+    [ChiTietSanPham].[TenSP] AS [TenSP], 
+    [ChiTietSanPham].[DonGia] AS [DonGia], 
+    [ChiTietSanPham].[CauHinh] AS [CauHinh], 
+    [ChiTietSanPham].[HinhAnh] AS [HinhAnh], 
+    [ChiTietSanPham].[HinhAnh1] AS [HinhAnh1], 
+    [ChiTietSanPham].[HinhAnh2] AS [HinhAnh2], 
+    [ChiTietSanPham].[HinhAnh3] AS [HinhAnh3], 
+    [ChiTietSanPham].[HinhAnh4] AS [HinhAnh4], 
+    [ChiTietSanPham].[MaLoaiSP] AS [MaLoaiSP], 
+    [ChiTietSanPham].[TenLoai] AS [TenLoai], 
+    [ChiTietSanPham].[TenNCC] AS [TenNCC], 
+    [ChiTietSanPham].[TenNSX] AS [TenNSX], 
+    [ChiTietSanPham].[SoLuongTon] AS [SoLuongTon], 
+    [ChiTietSanPham].[Moi] AS [Moi]
+    FROM [dbo].[ChiTietSanPham] AS [ChiTietSanPham]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BinhLuan_SanPham" Association="Self.FK_BinhLuan_SanPham">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="BinhLuan" EntitySet="BinhLuan" />

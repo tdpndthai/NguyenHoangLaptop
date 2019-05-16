@@ -31,7 +31,7 @@ namespace NguyenHoangLaptop.Controllers
             db.SaveChanges();
             //SaveChanges để lấy được mã phiếu nhập gán cho lstChiTietPhieuNhap
             SanPham sp;
-            foreach (var item in lstModel)
+            foreach (ChiTietPhieuNhap item in lstModel)
             {
                 //Cập nhật số lượng tồn
                 sp = db.SanPhams.Single(n => n.MaSP == item.MaSP);
@@ -47,7 +47,7 @@ namespace NguyenHoangLaptop.Controllers
         public ActionResult DSSPHetHang()
         {
             //Danh sách sản phẩm gần hết hàng với số lượng tồn bé hơn hoặc bằng 5
-            var lstSP = db.SanPhams.Where(n => n.DaXoa == false && n.SoLuongTon <= 5);
+            IQueryable<SanPham> lstSP = db.SanPhams.Where(n => n.DaXoa == false && n.SoLuongTon <= 5);
             return View(lstSP);
 
         }

@@ -8,7 +8,7 @@ using PagedList;
 
 namespace NguyenHoangLaptop.Controllers
 {
-    [Authorize(Roles = "QuanTri,QuanLyDonHang,QuanLySanPham")]
+    //[Authorize(Roles = "QuanTri,QuanLyDonHang,QuanLySanPham,DangKy")]
     public class TimKiemController : Controller
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
@@ -27,7 +27,7 @@ namespace NguyenHoangLaptop.Controllers
             //phân trang
             int PageSize = 9;
             //tạo biến số trang hiện tại
-            int PageNumber = (page ?? 1);
+            int PageNumber = page ?? 1;
             //tìm theo tên sp
             var lstSP = db.SanPhams.Where(n => n.TenSP.Contains(stukhoa) && n.DonGia<=10000000 &&n.DonGia >=1000000);
             

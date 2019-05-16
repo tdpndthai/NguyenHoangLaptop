@@ -360,6 +360,7 @@
       <End Role="Quyen" EntitySet="Quyens" />
       <End Role="Quyen_LoaiTV" EntitySet="Quyen_LoaiTV" />
     </AssociationSet>
+    <EntitySet Name="ChiTietSanPhams" EntityType="QuanlibanhanglaptopModel.ChiTietSanPham" />
   </EntityContainer>
   <Association Name="FK_SanPham_LoaiSanPham">
     <End Type="QuanlibanhanglaptopModel.LoaiSanPham" Role="LoaiSanPham" Multiplicity="0..1">
@@ -450,4 +451,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ChiTietSanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="TenSP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CauHinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="HinhAnh1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="HinhAnh2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="HinhAnh3" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="HinhAnh4" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="MaLoaiSP" Type="Int32" />
+    <Property Name="TenLoai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TenNCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TenNSX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongTon" Type="Int32" />
+    <Property Name="Moi" Type="Int32" />
+  </EntityType>
 </Schema>
