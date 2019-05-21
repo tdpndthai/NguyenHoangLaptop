@@ -11,7 +11,8 @@ namespace NguyenHoangLaptop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,8 +21,9 @@ namespace NguyenHoangLaptop.Models
             this.BinhLuans = new HashSet<BinhLuan>();
             this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
             this.ChiTietPhieuNhaps = new HashSet<ChiTietPhieuNhap>();
+            this.Anhs = new HashSet<Anh>();
         }
-    
+        [Required]
         public int MaSP { get; set; }
         public string TenSP { get; set; }
         public Nullable<decimal> DonGia { get; set; }
@@ -29,10 +31,6 @@ namespace NguyenHoangLaptop.Models
         public string CauHinh { get; set; }
         public string MoTa { get; set; }
         public string HinhAnh { get; set; }
-        public string HinhAnh1 { get; set; }
-        public string HinhAnh2 { get; set; }
-        public string HinhAnh3 { get; set; }
-        public string HinhAnh4 { get; set; }
         public Nullable<int> SoLuongTon { get; set; }
         public Nullable<int> Moi { get; set; }
         public Nullable<bool> DaXoa { get; set; }
@@ -49,5 +47,7 @@ namespace NguyenHoangLaptop.Models
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         public virtual NhaCungCap NhaCungCap { get; set; }
         public virtual NhaSanXuat NhaSanXuat { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Anh> Anhs { get; set; }
     }
 }

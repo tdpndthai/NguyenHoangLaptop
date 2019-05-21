@@ -35,10 +35,11 @@ namespace NguyenHoangLaptop.Models
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhaSanXuat> NhaSanXuats { get; set; }
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
-        public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<ThanhVien> ThanhViens { get; set; }
         public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<Quyen_LoaiTV> Quyen_LoaiTV { get; set; }
+        public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<ThanhVien> ThanhViens { get; set; }
         public virtual DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }
+        public virtual DbSet<Anh> Anhs { get; set; }
     }
 }

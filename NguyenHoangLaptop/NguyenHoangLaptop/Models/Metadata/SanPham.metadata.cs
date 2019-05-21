@@ -11,6 +11,7 @@ namespace NguyenHoangLaptop.Models.Metadata
 	{
         internal sealed class SanPhamMetadata
         {
+            [Required(ErrorMessage ="Bắt buộc nhập mã sp")]
             public int MaSP { get; set; }
             public string TenSP { get; set; }
             public decimal DonGia { get; set; }

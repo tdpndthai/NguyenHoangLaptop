@@ -21,8 +21,9 @@ namespace NguyenHoangLaptop.Models
             {
                 MaSP = iMaSP;
                 SanPham sp = db.SanPhams.Single(n => n.MaSP == iMaSP);
+                Anh anhsp = db.Anhs.Single(n => n.MaSP == iMaSP);
                 TenSP = sp.TenSP; //hàm tạo lấy sản phẩm
-                HinhAnh = sp.HinhAnh;
+                HinhAnh = anhsp.TenAnh;
                 DonGia = sp.DonGia.Value;
                 SoLuong = 1;
                 ThanhTien = DonGia*SoLuong;
@@ -35,8 +36,9 @@ namespace NguyenHoangLaptop.Models
             {
                 MaSP = iMaSP;
                 SanPham sp = db.SanPhams.Single(n => n.MaSP == iMaSP);
+                Anh anhsp = db.Anhs.Single(n => n.MaSP == iMaSP);
                 TenSP = sp.TenSP; //hàm tạo lấy sản phẩm
-                HinhAnh = sp.HinhAnh;
+                HinhAnh = anhsp.TenAnh;
                 DonGia = sp.DonGia.Value;
                 SoLuong = sl;
                 ThanhTien = DonGia * SoLuong;

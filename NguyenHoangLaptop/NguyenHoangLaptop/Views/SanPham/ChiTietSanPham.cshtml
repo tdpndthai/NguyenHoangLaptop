@@ -5,25 +5,21 @@
     Layout = "~/Views/Layout/_ProductLayout.cshtml";
 }
 
+    
+
     <div class="col-md-9 product-price1">
         <div class="col-md-5 single-top">
             <div class="flexslider">
                 <ul class="slides">
-                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)">
-                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)" />
-                    </li>
-                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)">
-                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)" />
-                    </li>
-                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)">
-                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)" />
-                    </li>
-                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)">
-                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)" />
-                    </li>
-                    <li data-thumb="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)">
-                        <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)" />
-                    </li>
+                    @if (ViewBag.AnhSanPham != null)
+                    {
+                        foreach (var anh in ViewBag.AnhSanPham)
+                        {
+                            <li data-thumb="@(anh.UrlAnh + anh.TenAnh)">
+                                <img src="@(anh.UrlAnh + anh.TenAnh)" /> @*bản chất là dữ liệu nên phải thêm ngoặc vào*@
+                            </li>
+                        }
+                    }
                 </ul>
             </div>
             <!-- FlexSlider -->

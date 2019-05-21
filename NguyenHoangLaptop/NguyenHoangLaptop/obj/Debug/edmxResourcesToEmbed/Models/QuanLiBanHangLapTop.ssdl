@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QuanlibanhanglaptopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Anh">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrlAnh" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TenAnh" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaSP" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="BinhLuan">
     <Key>
       <PropertyRef Name="MaBL" />
@@ -126,11 +135,7 @@
     <Property Name="NgayCapNhat" Type="datetime" />
     <Property Name="CauHinh" Type="nvarchar(max)" />
     <Property Name="MoTa" Type="nvarchar(max)" />
-    <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh1" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh2" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh3" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh4" Type="nchar" MaxLength="100" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="250" />
     <Property Name="SoLuongTon" Type="int" />
     <Property Name="Moi" Type="int" />
     <Property Name="DaXoa" Type="bit" />
@@ -164,11 +169,6 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     <Property Name="TenSP" Type="nvarchar" MaxLength="150" />
     <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
     <Property Name="CauHinh" Type="nvarchar(max)" />
-    <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh1" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh2" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh3" Type="nchar" MaxLength="100" />
-    <Property Name="HinhAnh4" Type="nchar" MaxLength="100" />
     <Property Name="MaLoaiSP" Type="int" />
     <Property Name="TenLoai" Type="nvarchar" MaxLength="150" />
     <Property Name="TenNCC" Type="nvarchar" MaxLength="150" />
@@ -176,6 +176,20 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     <Property Name="SoLuongTon" Type="int" />
     <Property Name="Moi" Type="int" />
   </EntityType>
+  <Association Name="FK_Anh_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Anh" Type="Self.Anh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="Anh">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_BinhLuan_SanPham">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -317,9 +331,7 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SanPham_LoaiSanPham">
-    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LoaiSanPham">
@@ -331,9 +343,7 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SanPham_NhaCungCap">
-    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NhaCungCap">
@@ -345,9 +355,7 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SanPham_NhaSanXuat">
-    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NhaSanXuat">
@@ -373,6 +381,7 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="QuanlibanhanglaptopModelStoreContainer">
+    <EntitySet Name="Anh" EntityType="Self.Anh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BinhLuan" EntityType="Self.BinhLuan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChiTietDonDatHang" EntityType="Self.ChiTietDonDatHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChiTietPhieuNhap" EntityType="Self.ChiTietPhieuNhap" Schema="dbo" store:Type="Tables" />
@@ -393,11 +402,6 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     [ChiTietSanPham].[TenSP] AS [TenSP], 
     [ChiTietSanPham].[DonGia] AS [DonGia], 
     [ChiTietSanPham].[CauHinh] AS [CauHinh], 
-    [ChiTietSanPham].[HinhAnh] AS [HinhAnh], 
-    [ChiTietSanPham].[HinhAnh1] AS [HinhAnh1], 
-    [ChiTietSanPham].[HinhAnh2] AS [HinhAnh2], 
-    [ChiTietSanPham].[HinhAnh3] AS [HinhAnh3], 
-    [ChiTietSanPham].[HinhAnh4] AS [HinhAnh4], 
     [ChiTietSanPham].[MaLoaiSP] AS [MaLoaiSP], 
     [ChiTietSanPham].[TenLoai] AS [TenLoai], 
     [ChiTietSanPham].[TenNCC] AS [TenNCC], 
@@ -406,6 +410,10 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     [ChiTietSanPham].[Moi] AS [Moi]
     FROM [dbo].[ChiTietSanPham] AS [ChiTietSanPham]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_Anh_SanPham" Association="Self.FK_Anh_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="Anh" EntitySet="Anh" />
+    </AssociationSet>
     <AssociationSet Name="FK_BinhLuan_SanPham" Association="Self.FK_BinhLuan_SanPham">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="BinhLuan" EntitySet="BinhLuan" />

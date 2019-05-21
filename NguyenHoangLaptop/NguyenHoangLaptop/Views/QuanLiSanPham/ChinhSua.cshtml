@@ -15,6 +15,22 @@
     $(function () {
         $("#datepicker").datepicker();
     });
+    $(document).ready(function () {
+        var wrapper = $(".anhsanpham"); //Fields wrapper
+        var add_button = $(".btnThemHinhAnh"); //Add button ID
+
+        var x = 0; //initlal text box count
+        $(add_button).click(function (e) { //on add input button click
+            e.preventDefault();
+            x++; //text box increment 
+            $(wrapper).append('<div class="anhsanpham"> < div class= "anh" > <input id="images" type="file" name="images[' + x + ']" /> <a href="#" class="btnRemove">Xóa</a></div ></div>'); //add input box
+        });
+
+        $(wrapper).on("click", ".btnRemove", function (e) { //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
+    });
+
 </script>
 <h2>Chỉnh Sửa Sản Phẩm</h2>
 
@@ -70,51 +86,13 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input name="HinhAnh" type="file" />
+    <div class="anhsanpham" style="padding-left:172px;">
+        <div class="anh">
+            <input id="images" name="images[0]" type="file" />
             <span>@ViewBag.upload </span>
-            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh)" width="250" height="100" />
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HinhAnh1, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input name="HinhAnh" type="file" />
-            <span>@ViewBag.upload </span>
-            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh1)" width="250" height="100" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HinhAnh2, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input name="HinhAnh" type="file" />
-            <span>@ViewBag.upload </span>
-            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh2)" width="250" height="100" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HinhAnh3, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input name="HinhAnh" type="file" />
-            <span>@ViewBag.upload </span>
-            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh3)" width="250" height="100" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HinhAnh4, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input name="HinhAnh" type="file" />
-            <span>@ViewBag.upload </span>
-            <img src="@Url.Content("~/Content/trangweb/images/"+Model.HinhAnh4)" width="250" height="100" />
-        </div>
-    </div>
-
+    <a class="btnThemHinhAnh" style="padding-left:172px;" href="#">Thêm Hình Ảnh</a>
     <div class="form-group">
         @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

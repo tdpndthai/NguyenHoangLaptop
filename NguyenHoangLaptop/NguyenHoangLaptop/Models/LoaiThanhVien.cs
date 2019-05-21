@@ -17,8 +17,8 @@ namespace NguyenHoangLaptop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiThanhVien()
         {
-            this.ThanhViens = new HashSet<ThanhVien>();
             this.Quyen_LoaiTV = new HashSet<Quyen_LoaiTV>();
+            this.ThanhViens = new HashSet<ThanhVien>();
         }
     
         public int MaLoaiTV { get; set; }
@@ -26,8 +26,8 @@ namespace NguyenHoangLaptop.Models
         public Nullable<int> UuDai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThanhVien> ThanhViens { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Quyen_LoaiTV> Quyen_LoaiTV { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ThanhVien> ThanhViens { get; set; }
     }
 }

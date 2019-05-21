@@ -31,6 +31,9 @@ namespace NguyenHoangLaptop.Controllers
             //SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
             //ViewBag.sp = sp;
             ChiTietSanPham sp = db.ChiTietSanPhams.SingleOrDefault(n => n.MaSP == id);
+            //lấy mã sp trong ảnh sp trùng với id truyền vào
+            var lstAnhSp = db.Anhs.Where(n => n.SanPham.MaSP == id);
+            ViewBag.AnhSanPham = lstAnhSp;
             if (sp == null)
             {
                 //thông báo nếu ko có sp đó
