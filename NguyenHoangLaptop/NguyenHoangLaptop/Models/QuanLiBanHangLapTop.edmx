@@ -11,7 +11,7 @@
           </Key>
           <Property Name="Ma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UrlAnh" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="TenAnh" Type="nvarchar" MaxLength="250" />
+          <Property Name="TenAnh" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="MaSP" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="BinhLuan">
@@ -165,7 +165,7 @@
           <Property Name="MaLoaiTV" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'NguyenHoangLapTop.dbo.ChiTietSanPham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ChiTietSanPham">
           <Key>
             <PropertyRef Name="MaSP" />
@@ -481,6 +481,7 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
     <edmx:ConceptualModels>
       <Schema Namespace="QuanlibanhanglaptopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="QuanlibanhanglaptopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anhs" EntityType="QuanlibanhanglaptopModel.Anh" />
           <EntitySet Name="BinhLuans" EntityType="QuanlibanhanglaptopModel.BinhLuan" />
           <EntitySet Name="ChiTietDonDatHangs" EntityType="QuanlibanhanglaptopModel.ChiTietDonDatHang" />
           <EntitySet Name="ChiTietPhieuNhaps" EntityType="QuanlibanhanglaptopModel.ChiTietPhieuNhap" />
@@ -496,6 +497,10 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
           <EntitySet Name="SanPhams" EntityType="QuanlibanhanglaptopModel.SanPham" />
           <EntitySet Name="ThanhViens" EntityType="QuanlibanhanglaptopModel.ThanhVien" />
           <EntitySet Name="ChiTietSanPhams" EntityType="QuanlibanhanglaptopModel.ChiTietSanPham" />
+          <AssociationSet Name="FK_Anh_SanPham" Association="QuanlibanhanglaptopModel.FK_Anh_SanPham">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="Anh" EntitySet="Anhs" />
+          </AssociationSet>
           <AssociationSet Name="FK_BinhLuan_SanPham" Association="QuanlibanhanglaptopModel.FK_BinhLuan_SanPham">
             <End Role="SanPham" EntitySet="SanPhams" />
             <End Role="BinhLuan" EntitySet="BinhLuans" />
@@ -524,6 +529,10 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             <End Role="ThanhVien" EntitySet="ThanhViens" />
             <End Role="KhachHang" EntitySet="KhachHangs" />
           </AssociationSet>
+          <AssociationSet Name="FK_SanPham_LoaiSanPham" Association="QuanlibanhanglaptopModel.FK_SanPham_LoaiSanPham">
+            <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+            <End Role="SanPham" EntitySet="SanPhams" />
+          </AssociationSet>
           <AssociationSet Name="FK_Quyen_LoaiTV_LoaiTV" Association="QuanlibanhanglaptopModel.FK_Quyen_LoaiTV_LoaiTV">
             <End Role="LoaiThanhVien" EntitySet="LoaiThanhViens" />
             <End Role="Quyen_LoaiTV" EntitySet="Quyen_LoaiTV" />
@@ -536,14 +545,6 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
             <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
           </AssociationSet>
-          <AssociationSet Name="FK_Quyen_LoaiTV_Quyen" Association="QuanlibanhanglaptopModel.FK_Quyen_LoaiTV_Quyen">
-            <End Role="Quyen" EntitySet="Quyens" />
-            <End Role="Quyen_LoaiTV" EntitySet="Quyen_LoaiTV" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SanPham_LoaiSanPham" Association="QuanlibanhanglaptopModel.FK_SanPham_LoaiSanPham">
-            <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
-            <End Role="SanPham" EntitySet="SanPhams" />
-          </AssociationSet>
           <AssociationSet Name="FK_SanPham_NhaCungCap" Association="QuanlibanhanglaptopModel.FK_SanPham_NhaCungCap">
             <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
             <End Role="SanPham" EntitySet="SanPhams" />
@@ -552,12 +553,21 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
             <End Role="SanPham" EntitySet="SanPhams" />
           </AssociationSet>
-          <EntitySet Name="Anhs" EntityType="QuanlibanhanglaptopModel.Anh" />
-          <AssociationSet Name="FK_Anh_SanPham" Association="QuanlibanhanglaptopModel.FK_Anh_SanPham">
-            <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="Anh" EntitySet="Anhs" />
+          <AssociationSet Name="FK_Quyen_LoaiTV_Quyen" Association="QuanlibanhanglaptopModel.FK_Quyen_LoaiTV_Quyen">
+            <End Role="Quyen" EntitySet="Quyens" />
+            <End Role="Quyen_LoaiTV" EntitySet="Quyen_LoaiTV" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Anh">
+          <Key>
+            <PropertyRef Name="Ma" />
+          </Key>
+          <Property Name="Ma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrlAnh" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenAnh" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SanPham" Relationship="QuanlibanhanglaptopModel.FK_Anh_SanPham" FromRole="Anh" ToRole="SanPham" />
+        </EntityType>
         <EntityType Name="BinhLuan">
           <Key>
             <PropertyRef Name="MaBL" />
@@ -710,13 +720,13 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
           <Property Name="MaNSX" Type="Int32" />
           <Property Name="MaLoaiSP" Type="Int32" />
           <Property Name="MaNCC" Type="Int32" />
+          <NavigationProperty Name="Anhs" Relationship="QuanlibanhanglaptopModel.FK_Anh_SanPham" FromRole="SanPham" ToRole="Anh" />
           <NavigationProperty Name="BinhLuans" Relationship="QuanlibanhanglaptopModel.FK_BinhLuan_SanPham" FromRole="SanPham" ToRole="BinhLuan" />
           <NavigationProperty Name="ChiTietDonDatHangs" Relationship="QuanlibanhanglaptopModel.FK_ChiTietDonDatHang_SanPham" FromRole="SanPham" ToRole="ChiTietDonDatHang" />
           <NavigationProperty Name="ChiTietPhieuNhaps" Relationship="QuanlibanhanglaptopModel.FK_ChiTietPhieuNhap_SanPham" FromRole="SanPham" ToRole="ChiTietPhieuNhap" />
           <NavigationProperty Name="LoaiSanPham" Relationship="QuanlibanhanglaptopModel.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
           <NavigationProperty Name="NhaCungCap" Relationship="QuanlibanhanglaptopModel.FK_SanPham_NhaCungCap" FromRole="SanPham" ToRole="NhaCungCap" />
           <NavigationProperty Name="NhaSanXuat" Relationship="QuanlibanhanglaptopModel.FK_SanPham_NhaSanXuat" FromRole="SanPham" ToRole="NhaSanXuat" />
-          <NavigationProperty Name="Anhs" Relationship="QuanlibanhanglaptopModel.FK_Anh_SanPham" FromRole="SanPham" ToRole="Anh" />
         </EntityType>
         <EntityType Name="ThanhVien">
           <Key>
@@ -752,6 +762,20 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
           <Property Name="SoLuongTon" Type="Int32" />
           <Property Name="Moi" Type="Int32" />
         </EntityType>
+        <Association Name="FK_Anh_SanPham">
+          <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QuanlibanhanglaptopModel.Anh" Role="Anh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="Anh">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BinhLuan_SanPham">
           <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -850,6 +874,18 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SanPham_LoaiSanPham">
+          <End Type="QuanlibanhanglaptopModel.LoaiSanPham" Role="LoaiSanPham" Multiplicity="0..1" />
+          <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiSanPham">
+              <PropertyRef Name="MaLoaiSP" />
+            </Principal>
+            <Dependent Role="SanPham">
+              <PropertyRef Name="MaLoaiSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Quyen_LoaiTV_LoaiTV">
           <End Type="QuanlibanhanglaptopModel.LoaiThanhVien" Role="LoaiThanhVien" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -892,32 +928,6 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Quyen_LoaiTV_Quyen">
-          <End Type="QuanlibanhanglaptopModel.Quyen" Role="Quyen" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="QuanlibanhanglaptopModel.Quyen_LoaiTV" Role="Quyen_LoaiTV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Quyen">
-              <PropertyRef Name="MaQuyen" />
-            </Principal>
-            <Dependent Role="Quyen_LoaiTV">
-              <PropertyRef Name="MaQuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SanPham_LoaiSanPham">
-          <End Type="QuanlibanhanglaptopModel.LoaiSanPham" Role="LoaiSanPham" Multiplicity="0..1" />
-          <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiSanPham">
-              <PropertyRef Name="MaLoaiSP" />
-            </Principal>
-            <Dependent Role="SanPham">
-              <PropertyRef Name="MaLoaiSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SanPham_NhaCungCap">
           <End Type="QuanlibanhanglaptopModel.NhaCungCap" Role="NhaCungCap" Multiplicity="0..1" />
           <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="*" />
@@ -942,36 +952,36 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Anh">
-          <Key>
-            <PropertyRef Name="Ma" />
-          </Key>
-          <Property Name="Ma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UrlAnh" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TenAnh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="MaSP" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SanPham" Relationship="QuanlibanhanglaptopModel.FK_Anh_SanPham" FromRole="Anh" ToRole="SanPham" />
-        </EntityType>
-        <Association Name="FK_Anh_SanPham">
-          <End Type="QuanlibanhanglaptopModel.SanPham" Role="SanPham" Multiplicity="1">
+        <Association Name="FK_Quyen_LoaiTV_Quyen">
+          <End Type="QuanlibanhanglaptopModel.Quyen" Role="Quyen" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="QuanlibanhanglaptopModel.Anh" Role="Anh" Multiplicity="*" />
+          <End Type="QuanlibanhanglaptopModel.Quyen_LoaiTV" Role="Quyen_LoaiTV" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="MaSP" />
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
             </Principal>
-            <Dependent Role="Anh">
-              <PropertyRef Name="MaSP" />
+            <Dependent Role="Quyen_LoaiTV">
+              <PropertyRef Name="MaQuyen" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanlibanhanglaptopModelStoreContainer" CdmEntityContainer="QuanlibanhanglaptopEntities">
+          <EntitySetMapping Name="Anhs">
+            <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.Anh">
+              <MappingFragment StoreEntitySet="Anh">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
+                <ScalarProperty Name="UrlAnh" ColumnName="UrlAnh" />
+                <ScalarProperty Name="Ma" ColumnName="Ma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BinhLuans">
             <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.BinhLuan">
               <MappingFragment StoreEntitySet="BinhLuan">
@@ -1148,16 +1158,6 @@ warning 6002: The table/view 'Quanlibanhanglaptop.dbo.ChiTietSanPham' does not h
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Anhs">
-            <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.Anh">
-              <MappingFragment StoreEntitySet="Anh">
-                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
-                <ScalarProperty Name="UrlAnh" ColumnName="UrlAnh" />
-                <ScalarProperty Name="Ma" ColumnName="Ma" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

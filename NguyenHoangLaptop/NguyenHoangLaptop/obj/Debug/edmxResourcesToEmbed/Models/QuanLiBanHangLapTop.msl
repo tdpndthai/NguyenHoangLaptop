@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="QuanlibanhanglaptopModelStoreContainer" CdmEntityContainer="QuanlibanhanglaptopEntities">
+    <EntitySetMapping Name="Anhs">
+      <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.Anh">
+        <MappingFragment StoreEntitySet="Anh">
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
+          <ScalarProperty Name="UrlAnh" ColumnName="UrlAnh" />
+          <ScalarProperty Name="Ma" ColumnName="Ma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="BinhLuans">
       <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.BinhLuan">
         <MappingFragment StoreEntitySet="BinhLuan">
@@ -177,16 +187,6 @@
           <ScalarProperty Name="DonGia" ColumnName="DonGia" />
           <ScalarProperty Name="TenSP" ColumnName="TenSP" />
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Anhs">
-      <EntityTypeMapping TypeName="QuanlibanhanglaptopModel.Anh">
-        <MappingFragment StoreEntitySet="Anh">
-          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-          <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
-          <ScalarProperty Name="UrlAnh" ColumnName="UrlAnh" />
-          <ScalarProperty Name="Ma" ColumnName="Ma" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

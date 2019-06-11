@@ -25,6 +25,7 @@ namespace NguyenHoangLaptop.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Anh> Anhs { get; set; }
         public virtual DbSet<BinhLuan> BinhLuans { get; set; }
         public virtual DbSet<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
         public virtual DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
@@ -40,6 +41,5 @@ namespace NguyenHoangLaptop.Models
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
         public virtual DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }
-        public virtual DbSet<Anh> Anhs { get; set; }
     }
 }

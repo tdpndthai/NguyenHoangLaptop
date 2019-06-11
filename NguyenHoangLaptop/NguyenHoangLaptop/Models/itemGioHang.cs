@@ -20,9 +20,9 @@ namespace NguyenHoangLaptop.Models
             using (QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities())
             {
                 MaSP = iMaSP;
-                SanPham sp = db.SanPhams.Single(n => n.MaSP == iMaSP);
-                Anh anhsp = db.Anhs.Single(n => n.MaSP == iMaSP);
-                TenSP = sp.TenSP; //hàm tạo lấy sản phẩm
+                SanPham sp = db.SanPhams.First(n => n.MaSP == iMaSP);
+                Anh anhsp = db.Anhs.First(n => n.MaSP == iMaSP);
+                TenSP = sp.TenSP; //hàm tạo lấy tên sản phẩm
                 HinhAnh = anhsp.TenAnh;
                 DonGia = sp.DonGia.Value;
                 SoLuong = 1;

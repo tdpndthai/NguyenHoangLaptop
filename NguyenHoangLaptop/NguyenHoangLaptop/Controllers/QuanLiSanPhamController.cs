@@ -64,20 +64,20 @@ namespace NguyenHoangLaptop.Controllers
                 foreach (var item in images)
                 {
                     //lấy tên file ảnh gốc
-                    string filename = Path.GetFileName(item.FileName);
+                    //string filename = Path.GetFileName(item.FileName);
                     //gán tên file ảnh đó vào trường hình ảnh
-                    sp.HinhAnh = item.FileName;
+                    sp.HinhAnh = "MaSP" +"-"+ sp.MaSP +"-"+ item.FileName;
                     //string pathRoot = "~/Content/trangweb/images/";
                     //string path = Path.Combine(Server.MapPath(pathRoot),filename);
                     //string fullpath = path + filename;
                     //chuyển ảnh đó vào thư mục ảnh,cấu hình webconfig cho đường dẫn ảnh,thay vì dùng đường dẫn vào code ta dùng lại ImagePath
-                    string path = @".." + ConfigurationManager.AppSettings["ImagePath"].ToString() + filename;
+                    string path = @".." + ConfigurationManager.AppSettings["ImagePath"].ToString() + "MaSP" +"-"+ sp.MaSP +"-"+ item.FileName;
                     item.SaveAs(Server.MapPath(path));
                     //khởi tạo đối tượng ảnh,gán dữ liệu cho các thuộc tính của ảnh 
                     Anh anh = new Anh
                     {
                         MaSP = sp.MaSP,
-                        TenAnh = filename,
+                        TenAnh = "MaSP" +"-"+ sp.MaSP +"-"+ item.FileName,
                         UrlAnh = ConfigurationManager.AppSettings["ImagePath"].ToString()  // " / Content/trangweb/images/"
                     };
                     db.Anhs.Add(anh); //cho ảnh vào db

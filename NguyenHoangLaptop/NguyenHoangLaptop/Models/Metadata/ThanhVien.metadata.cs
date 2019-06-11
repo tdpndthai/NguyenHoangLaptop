@@ -21,7 +21,7 @@ namespace NguyenHoangLaptop.Models.Metadata
             [Required(ErrorMessage = "{0} không được để trống")]
             public string MatKhau { get; set; }
             [Display(Name = "Nhập Lại Mật Khẩu")]
-            [Compare("Password", ErrorMessage = "Mật Khẩu Không Trùng")]
+            [Compare("MatKhau", ErrorMessage = "Mật Khẩu Không Trùng")]
             public string NhapLaiMatKhau { get; set; }
             [Display(Name = "Họ Tên")]
             [Required(ErrorMessage = "{0} không được để trống")]
