@@ -184,3 +184,8 @@ C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\Ngu
 C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.CopyComplete
 C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.dll
 C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.pdb
+C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.Resource.Resource.resources
+C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.csproj.GenerateResource.cache
+C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\NguyenHoangLaptop.Resource.Resource.En.resources
+C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\bin\En\NguyenHoangLaptop.resources.dll
+C:\Users\nguye\OneDrive\Documents\GitHub\NguyenHoangLaptop\NguyenHoangLaptop\NguyenHoangLaptop\obj\Debug\En\NguyenHoangLaptop.resources.dll

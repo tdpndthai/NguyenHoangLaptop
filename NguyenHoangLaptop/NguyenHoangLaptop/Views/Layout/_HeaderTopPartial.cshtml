@@ -16,7 +16,7 @@
                 {
                     ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
                     <li style="color:#3bd23d;">Chào mừng @tv.HoTen</li>
-                    @Html.ActionLink("Đăng Xuất","DangXuat","Home",null,new {@style= "padding:15px; color:#3bd23d;" })
+                    @Html.ActionLink("Đăng Xuất", "DangXuat", "Home", null, new { @style = "padding:15px; color:#3bd23d;" })
                 }
                 else
                 {
@@ -24,7 +24,16 @@
                     <li style="display:inline;"><a href="@Url.Action("DangKy","Home")">Đăng Ký</a></li>
                 }
             </ul>
-            @Html.Action("GioHangPartial","GioHang")@*tách giỏ hàng sang partial view *@
+            @Html.Action("GioHangPartial", "GioHang")@*tách giỏ hàng sang partial view *@
+            <div style="padding:5px">
+
+                @{
+                    foreach (var i in NguyenHoangLaptop.LanguageMang.AvailableLanguages)
+                    {
+                        @Html.ActionLink(i.LanguageFullName, "ChangeLanguage", "Home", new { lang = i.LanguageCultureName }, null) <text> </text>
+                    }
+                }
+            </div>
             <div class="clearfix"> </div>
         </div>
         <div class="clearfix"> </div>

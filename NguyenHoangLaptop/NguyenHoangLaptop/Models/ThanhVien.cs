@@ -12,6 +12,8 @@ namespace NguyenHoangLaptop.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Security.AccessControl;
+    using NguyenHoangLaptop.Resource;
 
     public partial class ThanhVien
     {
@@ -24,32 +26,44 @@ namespace NguyenHoangLaptop.Models
 
         [Display(Name = "Mã Thành Viên")]
         public int MaThanhVien { get; set; }
-        [Required(ErrorMessage = "{0} không được để trống")]
-        [Display(Name = "Tài Khoản")]
+
+        [Display(Name = "Account",ResourceType =typeof(Resource))]
         [StringLength(20, ErrorMessage = "Không được quá 20 kí tự")]
+        [Required(ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName = "AccountRequired")]
         public string TaiKhoan { get; set; }
-        [Display(Name = "Mật Khẩu")]
-        [Required(ErrorMessage = "{0} không được để trống")]
+
+        [Display(Name = "PassWord",ResourceType =typeof(Resource))]
+        [Required(ErrorMessageResourceType=typeof(Resource),ErrorMessageResourceName = "PassWordRequired")]
         public string MatKhau { get; set; }
-        [Display(Name = "Nhập Lại Mật Khẩu")]
-        [Compare("MatKhau", ErrorMessage = "Mật Khẩu Không Trùng")]
+
+        [Display(Name = "PassWordAgain",ResourceType =typeof(Resource))]
+        [Compare("MatKhau",ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName = "PassWordAgainRequired")]
         public string NhapLaiMatKhau { get; set; }
-        [Display(Name = "Họ Tên")]
-        [Required(ErrorMessage = "{0} không được để trống")]
+
+        [Display(Name = "Name",ResourceType =typeof(Resource))]
+        [Required(ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName = "NameRequired")]
         public string HoTen { get; set; }
-        [Display(Name = "Địa Chỉ")]
-        [Required(ErrorMessage = "{0} không được để trống")]
+
+        [Display(Name = "Address",ResourceType =typeof(Resource))]
+        [Required(ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName = "AddressRequired")]
         public string DiaChi { get; set; }
-        [Required(ErrorMessage = "{0} không được để trống")]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z09!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z09-]*[a-z0-9])?)\Z", ErrorMessage = "Email không hợp lệ!")]
+
+        [Display(Name = "Email", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
+        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
-        [Display(Name = "Số Điện Thoại")]
-        [Required(ErrorMessage = "{0} không được để trống")]
+
+        [Display(Name = "PhoneNumber")]
+        [Required(ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName ="PhoneNumberRequired")]
         public Nullable<int> SoDienThoai { get; set; }
+        
+        [Display(Name ="SecretQuestion")]
         public string CauHoi { get; set; }
-        [Display(Name = "Câu Trả Lời")]
-        [Required(ErrorMessage = "{0} không được để trống")]
+
+        [Display(Name = "Answer")]
+        [Required(ErrorMessageResourceType =typeof(Resource),ErrorMessageResourceName = "AnswerRequired")]
         public string CauTraLoi { get; set; }
+
         public Nullable<int> MaLoaiTV { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

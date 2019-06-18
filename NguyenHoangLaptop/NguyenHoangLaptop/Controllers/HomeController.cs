@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace NguyenHoangLaptop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         QuanlibanhanglaptopEntities db = new QuanlibanhanglaptopEntities();
         // GET: Home
@@ -125,6 +125,11 @@ namespace NguyenHoangLaptop.Controllers
             return View();
         }
 
+        public ActionResult ChangeLanguage(string lang)
+        {
+            new LanguageMang().SetLanguage(lang);
+            return RedirectToAction("DangKy", "Home");
+        }
 
 
         protected override void Dispose(bool disposing)
