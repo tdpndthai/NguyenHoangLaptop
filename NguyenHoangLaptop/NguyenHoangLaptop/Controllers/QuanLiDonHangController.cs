@@ -53,36 +53,12 @@ namespace NguyenHoangLaptop.Controllers
         [HttpPost]
         public ActionResult DuyetDonHang(DonDatHang ddh)
         {
-            //Truy vấn lấy ra dữ liệu của đơn hàn đó 
-            DonDatHang ddhUpdate = db.DonDatHangs.Single(n => n.MaDDH == ddh.MaDDH);
-            ddhUpdate.DaThanhToan = ddh.DaThanhToan;
-            ddhUpdate.TinhTrangGiaoHang = ddh.TinhTrangGiaoHang;
-            db.SaveChanges();
-
-            //Lấy danh sách chi tiết đơn hàng để hiển thị cho người dùng thấy
-            var lstChiTietDH = db.ChiTietDonDatHangs.Where(n => n.MaDDH == ddh.MaDDH);
-            ViewBag.ListChiTietDH = lstChiTietDH;
-            //Gửi khách hàng 1 mail để xác nhận việc thanh toán 
-            GuiEmail("Xác đơn hàng của Laptop NguyenHoang", "nguyendanhthai165@gmail.com", "thainguyendanh000@gmail.com", "16519941994", "Đơn hàng của bạn đã được đặt thành công!");
-            return View(ddhUpdate);
+            //coming soon
+            return View(ddh);
         }
         public void GuiEmail(string Title, string ToEmail, string FromEmail, string PassWord, string Content)
         {
-            // goi email
-            MailMessage mail = new MailMessage();
-            mail.To.Add(ToEmail); // Địa chỉ nhận
-            mail.From = new MailAddress(ToEmail); // Địa chửi gửi
-            mail.Subject = Title;  // tiêu đề gửi
-            mail.Body = Content;                 // Nội dung
-            mail.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com"; // host gửi của Gmail
-            smtp.Port = 587;               //port của Gmail
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential
-            (FromEmail, PassWord);//Tài khoản password người gửi
-            smtp.EnableSsl = true;   //kích hoạt giao tiếp an toàn SSL
-            smtp.Send(mail);   //Gửi mail đi
+            //coming soon
         }
 
 
